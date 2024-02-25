@@ -1,0 +1,20 @@
+.buttonOut {
+  display: flex;
+  padding: 0;
+
+  border-radius: 0;
+  border: 1px solid transparent;
+
+  background-color: transparent;
+  color: #292D32;
+  box-shadow: none;
+}
+
+.buttonOut:hover {
+  background-color: transparent;
+  color: rgba(41, 45, 50, 0.65);
+}
+
+.icon {
+  padding-right: 0.5rem;
+}

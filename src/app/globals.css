@@ -2,26 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* ---------- General style guidelines --------- 
+Fonts: 
+  Headers: Berkshire Swash 
+  Body: ---------
+  
+Colors:
+  Black   #000
+  Red     #D14836
+  Blanco  #F9F4F6 */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  max-width: 1800px;
+  margin: 0 auto;
+
+  background-color: #161320;
+  font-family: "Rubik", sans-serif;
+}
+
+/* ---------- Disable vertical scroll ----------- */
+.hide-scroll {
+  overflow-y: hidden;
+}
+
+h1,
+h2,
+p,
+li {
+  color: #f9f4f6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Berkshire Swash", serif;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+/* ---------- Button ----------- */
+button {
+  width: 40%;
+  max-width: 200px;
+  padding: 0.5rem;
+
+  background-color: #161320;
+  color: #f9f4f6;
+}
+
+button:hover {
+  background-color: #3f3852;
 }

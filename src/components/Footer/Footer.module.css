@@ -1,0 +1,43 @@
+.footer {
+  padding: 2rem;
+}
+
+.footer h3 {
+  color: #F9F4F6;
+  font-family: 'Rubik', sans-serif;
+}
+
+.navigation li:active,
+.socialMedia li:active,
+.navigation li:hover,
+.socialMedia li:hover {
+  color: #D14836;
+}
+
+.footer>div>div {
+  text-align: left;
+}
+
+@media (width >= 640px) {
+  .footerContainer {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (width >= 800px) {
+  .navigation,
+  .socialMedia {
+    padding-left: 2rem;
+  }
+}
+
+/* ---------- Icons ----------- */
+.contactIcon {
+  transform: scale(0.9);
+}
+
+/* ---------- Copyright ----------- */
+.copyrightContainer {
+  margin-top: 3rem;
+}
