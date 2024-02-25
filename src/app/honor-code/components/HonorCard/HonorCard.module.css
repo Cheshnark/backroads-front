@@ -1,0 +1,16 @@
+.honorCard {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.honorCard h3 {
+  margin-bottom: 0.5rem;
+
+  font-size: 2rem;
+  text-align: center;
+}
+
+.honorCard p {
+  color: #161320;
+  text-align: justify;
+}
