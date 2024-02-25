@@ -5,8 +5,13 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
 
+import useAuthStore from '@/stores/AuthStore'
+import { useState } from 'react'
+
 const RegisterForm = () => {
+  const [error, setError] = useState(null)
   const router = useRouter()
+  const { register } = useAuthStore()
 
   const formik = useFormik({
     initialValues: {
@@ -32,7 +37,7 @@ const RegisterForm = () => {
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
 
     }),
-    onSubmit: values => {
+    onSubmit: async values => {
       const registerJson = {
         data: {
           attributes: {
@@ -45,9 +50,12 @@ const RegisterForm = () => {
         }
       }
 
-      console.log(registerJson)
-
-      router.push('/')
+      const result = await register(registerJson)
+      if (result.error) {
+        setError(result.error)
+      } else {
+        router.push('/')
+      }
     }
   })
 
@@ -101,7 +109,8 @@ const RegisterForm = () => {
         ? (
           <div>{formik.errors.confirmPassword}</div>)
         : null}
-      <button>Sign In</button>
+      <button type='submit'>Sign In</button>
+      {error && <p className={styles.registerError}>{error}</p>}
     </form>
   )
 }

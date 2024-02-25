@@ -14,7 +14,7 @@ const Register = () => {
           <RegisterForm />
         </div>
         <footer>
-          <p>Already have an account? <Link href="#" className='font-bold hover:text-gray-700'>Login</Link></p>
+          <p>Already have an account? <Link href="/login" className='font-bold hover:text-gray-700'>Login</Link></p>
         </footer>
       </div>
       <div className={`${styles.rightImage} hidden md:block w-6/12`}>

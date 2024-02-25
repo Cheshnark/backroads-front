@@ -4,9 +4,14 @@ import styles from './LoginForm.module.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+
+import useAuthStore from '@/stores/AuthStore'
 
 const LoginForm = () => {
+  const [error, setError] = useState(null)
   const router = useRouter()
+  const { login } = useAuthStore()
 
   const formik = useFormik({
     initialValues: {
@@ -19,8 +24,8 @@ const LoginForm = () => {
         .required('Required')
 
     }),
-    onSubmit: values => {
-      const registerJson = {
+    onSubmit: async values => {
+      const loginJson = {
         data: {
           attributes: {
             email: values.email,
@@ -30,9 +35,13 @@ const LoginForm = () => {
         }
       }
 
-      console.log(registerJson)
-
-      router.push('/')
+      const result = await login(loginJson)
+      if (result.error) {
+        console.log()
+        setError(result.error)
+      } else {
+        router.push('/')
+      }
     }
   })
 
@@ -62,7 +71,8 @@ const LoginForm = () => {
         ? (
           <div>{formik.errors.password}</div>)
         : null}
-      <button>Sign In</button>
+      <button type='submit'>Sign In</button>
+      {error && <p className={styles.loginError}>{error}</p>}
     </form>
   )
 }

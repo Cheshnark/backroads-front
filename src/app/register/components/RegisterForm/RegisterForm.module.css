@@ -1,3 +1,11 @@
 .registerForm input{
   padding: 0.3rem 0.5rem;
 }
+
+.registerForm button {
+  background-color: #161320;
+}
+
+.registerError {
+  color: #D14836;
+}
