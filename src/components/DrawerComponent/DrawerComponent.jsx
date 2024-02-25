@@ -4,9 +4,7 @@ import styles from './DrawerComponent.module.css'
 import Link from 'next/link'
 import { X } from 'lucide-react'
 
-// import SignOut from '../SignOut/SignOut'
-
-const DrawerComponent = ({ user, setShowDrawer }) => {
+const DrawerComponent = ({ session, setShowDrawer }) => {
   const handleClick = (e) => {
     if (e.target.tagName === 'ASIDE') {
       setShowDrawer(false)
@@ -22,7 +20,7 @@ const DrawerComponent = ({ user, setShowDrawer }) => {
           <li><Link href='/map'>Map</Link></li >
           <li><Link href='/honor-code'>Honor Code</Link ></li >
           <li><Link href='/faq' > FAQ</Link></li >
-          {user
+          {session
             ? (
               <li><Link href='/profile'>Profile</Link ></li >)
             : (

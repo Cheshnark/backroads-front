@@ -1,55 +1,63 @@
 /* eslint-disable camelcase */
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { persist } from 'zustand/middleware'
 import { create } from 'zustand'
-
-const supabase = createClientComponentClient()
+import axios from 'axios'
 
 const useAuthStore = create()(
   persist(
     (set) => ({
-      session: false,
+      session: localStorage.getItem('user'),
       setSession: (session) => set({ session }),
-      login: async (email, password) => {
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password
-        })
-        if (error) return Promise.reject(error)
-
-        set({ session: true })
-        return Promise.resolve(data.user)
-      },
-      register: async (email, password) => {
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: `${location.origin}/login`
+      login: async (loginJson) => {
+        const res = await axios.post('http://127.0.0.1:8000/api/login', loginJson, {
+          headers: {
+            'Content-Type': 'application/json'
           }
         })
-        if (error) return Promise.reject(error)
 
-        return Promise.resolve(data.user)
+        const data = await res.data
+        if (!data) {
+          return Promise.resolve('Login error')
+        }
+
+        set({ session: data })
+
+        return Promise.resolve(data)
       },
-      checkEmail: async (email) => {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('id_profile')
-          .eq('email', email)
-        console.log(data)
-        if (error) return true
-        if (data.length > 0) { return true } else { return false }
+      register: async (registerJson) => {
+        const res = await axios.post('http://127.0.0.1:8000/api/register', registerJson, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        const data = await res.data
+
+        if (!data) {
+          return Promise.resolve('Register error')
+        }
+
+        set({ session: data })
+
+        return Promise.resolve(data)
       },
-      logout: async () => {
-        const { data, error } = await supabase.auth.signOut()
-        if (error) return Promise.reject(error)
-        localStorage.removeItem('global')
-        set({ session: false })
+      logout: async (logoutJson) => {
+        const res = await axios.post('http://127.0.0.1:8000/api/logout', logoutJson, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        const data = await res.data
+
+        if (!data) {
+          return Promise.resolve('Logout error')
+        }
+
+        set({ session: null })
+
         return Promise.resolve(data)
       }
     }),
-    { name: 'global' }
+    { name: 'user' }
   )
 )
 

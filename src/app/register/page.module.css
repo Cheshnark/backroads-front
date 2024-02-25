@@ -1,0 +1,22 @@
+.register {
+  margin-top: 5rem;
+
+  background-color: #F9F4F6;
+}
+
+@media (width >= 768px) {
+  .registerFormContainer {
+    min-height: 623px;
+    justify-content: space-evenly;
+  }
+}
+
+.register h2 {
+  color: #161320;
+}
+
+.rightImage {
+  background-image: url('/images/login01.webp');
+  background-size: cover;
+  background-position: 65%;
+}

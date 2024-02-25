@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------- General style guidelines --------- 
-Fonts: 
-  Headers: Berkshire Swash 
-  Body: ---------
-  
+/* ---------- GENERAL STYLES ----------
 Colors:
-  Black   #000
-  Red     #D14836
-  Blanco  #F9F4F6 */
+  black -> #161320
+  white -> #F9F4F6
+  red -> #D14836
+
+Fonts: 
+  Headers: Berkshire Swash, 400
+  Body: Rubik, [400, 600, 700]
+*/
 
 * {
   box-sizing: border-box;

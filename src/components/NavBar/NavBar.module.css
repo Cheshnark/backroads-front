@@ -15,10 +15,10 @@
   margin: auto;
 
   background-color: #161320;
+}
 
-  .menuIcon {
-    color: #F9F4F6;
-  }
+.menuIcon {
+  color: #F9F4F6;
 }
 
 .navBar>ul {

@@ -5,14 +5,14 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Menu } from 'lucide-react'
 
-// import useAuthStore from '@/stores/AuthStore'
+import useAuthStore from '@/stores/AuthStore'
 // import { useGetFromStore } from '@/hooks/zustandHooks'
 import DrawerComponent from '../DrawerComponent/DrawerComponent'
 
 const NavBar = () => {
   // const session = useGetFromStore(useAuthStore, (state) => state.session)
-  const user = true
   const [showDrawer, setShowDrawer] = useState(false)
+  const { session } = useAuthStore()
 
   return (
     <nav className={styles.navBar}>
@@ -22,15 +22,14 @@ const NavBar = () => {
         <li><Link href='/map'>Map</Link></li>
         <li><Link href='/honor-code'>Honor Code</Link></li >
         <li><Link href='/faq'>FAQ</Link></li >
-        {user
+        {session
           ? (
             <li><Link href='/profile'>Profile</Link></li >)
           : (
             <li><Link href='/login'>Login</Link></li >)}
-        <li>{user}</li>
       </ul >
       {showDrawer &&
-        <DrawerComponent user={user} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+        <DrawerComponent session={session} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
       }
     </nav >
   )

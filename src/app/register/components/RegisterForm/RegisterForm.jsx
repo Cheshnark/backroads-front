@@ -1,57 +1,105 @@
 'use client'
 
 import styles from './RegisterForm.module.css'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { useRouter } from 'next/navigation'
 
 const RegisterForm = () => {
-  const [data, setData] = useState()
-  const {
-    register,
-    handleSubmit,
-    // watch,
-    formState: { errors }
-  } = useForm({
-    defaultValues: {
+  const router = useRouter()
+
+  const formik = useFormik({
+    initialValues: {
       email: '',
-      userName: '',
-      password: ''
+      username: '',
+      password: '',
+      confirmPassword: ''
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email address').required('Required'),
+      username: Yup.string()
+        .max(15, 'Must be 15 characters or less')
+        .required('Required'),
+      password: Yup.string()
+        .min(8, 'Password must be 8 characters long')
+        .matches(/[0-9]/, 'Password requires a number')
+        .matches(/[a-z]/, 'Password requires a lowercase letter')
+        .matches(/[A-Z]/, 'Password requires an uppercase letter')
+        .matches(/[^\w]/, 'Password requires a symbol'),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+
+    }),
+    onSubmit: values => {
+      const registerJson = {
+        data: {
+          attributes: {
+            email: values.email,
+            name: values.username,
+            password: values.password,
+            password_confirmation: values.confirmPassword,
+            device_name: 'Mackauly'
+          }
+        }
+      }
+
+      console.log(registerJson)
+
+      router.push('/')
     }
   })
-  const processForm = data => setData(data)
 
   return (
-    <form onSubmit={handleSubmit(processForm)} className={`${styles.registerForm} flex flex-col gap-4`}>
+    <form onSubmit={formik.handleSubmit} className={`${styles.registerForm} flex flex-col gap-4`}>
       <input
-        {...register('email', { required: 'Email is required' })}
-        type='text'
+        id='email'
+        type='email'
         placeholder='Email'
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.email}
       />
-      {errors.email?.message && <p className={styles.registerError}>{errors.email.message}</p>}
+      {formik.touched.email && formik.errors.email
+        ? (
+          <div>{formik.errors.email}</div>)
+        : null}
       <input
-        {...register('userName', { required: 'User name is required' })}
+        id='username'
         type='text'
-        placeholder='User Name'
+        placeholder='User name'
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.username}
       />
-      {errors.userName?.message && <p className={styles.registerError}>{errors.userName.message}</p>}
+      {formik.touched.username && formik.errors.username
+        ? (
+          <div>{formik.errors.username}</div>)
+        : null}
       <input
-        {...register('password', {
-          required: 'Password is required',
-          minLength: {
-            value: 8,
-            message: 'Password must have at least 8 characters'
-          }
-        })}
-        type='text'
+        id='password'
+        type='password'
         placeholder='Password'
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.password}
       />
-      {errors.password?.message && <p className={styles.registerError}>{errors.password.message}</p>}
+      {formik.touched.password && formik.errors.password
+        ? (
+          <div>{formik.errors.password}</div>)
+        : null}
+      <input
+        id='confirmPassword'
+        type='password'
+        placeholder='Confirm Password'
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.confirmPassword}
+      />
+      {formik.touched.confirmPassword && formik.errors.confirmPassword
+        ? (
+          <div>{formik.errors.confirmPassword}</div>)
+        : null}
       <button>Sign In</button>
-
-      <div className='flex-1 rounded-lg bg-cyan-600 p-8 text-white'>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </div>
     </form>
   )
 }
