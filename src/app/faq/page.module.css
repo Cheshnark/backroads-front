@@ -1,0 +1,64 @@
+.faq {
+  background-color: #F9F4F6;
+}
+
+.faq h2,
+.faq p {
+  color: #161320;
+}
+
+/* ---------- Front Section ----------*/
+.frontContainer {
+  width: 100%;
+  min-height: 700px;
+  margin: 112px auto 0 auto;
+  padding-bottom: 1.5rem;
+
+
+  background-image: url('/images/faq01.webp');
+  background-position: 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (width >= 768px) {
+  .frontContainer {
+    background-position: 0;
+  }
+}
+
+.frontCardContainer {
+  width: 90%;
+  max-width: 1104px;
+  margin: 0 auto 6rem auto;
+  padding: 1rem;
+
+  background-color: rgba(249, 244, 246, 0.80);
+  
+  text-align: center;
+}
+
+.frontCardContainer h2 {
+  margin-bottom: 0.5rem;
+}
+
+.frontCardContainer p {
+  text-align: justify;
+}
+
+/* ---------- Code container ----------*/
+.faqContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.faqCardsContainer {
+  width: 90%;
+  margin: 3rem auto 5rem auto;
+}
+
+@media (width >= 768px) {
+  .faqCardsContainer {
+    width: 85%;
+  }
+}
