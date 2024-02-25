@@ -11,7 +11,8 @@
   }
 }
 
-.register h2 {
+.register h2,
+.register footer p {
   color: #161320;
 }
 
