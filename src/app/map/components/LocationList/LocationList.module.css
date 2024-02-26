@@ -4,6 +4,11 @@
   height: 100%;
 }
 
+.locationList p {
+  color: #161320;
+}
+
 .locationCard {
+  padding: 1rem 2rem;
   background-color: #F9F4F6;
 }
