@@ -1,0 +1,15 @@
+.addComment textarea {
+  width: 100%;
+  padding: 0.5rem;
+
+  background-color: #e7e7e7;
+}
+
+.addComment textarea:focus {
+  outline: none;
+  border: 2px solid black;
+}
+
+.addComment ::-webkit-resizer {
+  color: black;
+}

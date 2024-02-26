@@ -1,22 +1,22 @@
 import styles from './LocationHeader.module.css'
 
-import { FlameKindling } from 'lucide-react'
+import { Flame } from 'lucide-react'
 
 import { iterateScore } from '@/utils/iterateScore'
 
 const LocationHeader = ({ location }) => {
   return (
     <header className={styles.header}>
-      <div>
+      <div className={styles.item01}>
         <h2 className='font-berkshire'>{location?.title}</h2>
       </div>
-      <div>
-        <FlameKindling />
+      <div className={styles.item02}>
+        <Flame />
       </div>
-      <div>
+      <div className={`${styles.item03} flex`}>
         {iterateScore(location?.score)}
       </div>
-      <div>
+      <div className={styles.item04}>
         <p>{location.locationType}</p>
       </div>
     </header>

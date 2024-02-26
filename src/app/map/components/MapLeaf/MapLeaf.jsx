@@ -2,9 +2,10 @@
 'use client'
 
 import styles from './MapLeaf.module.css'
+import 'leaflet/dist/leaflet.css'
+
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
-import 'leaflet/dist/leaflet.css'
 import { Icon, divIcon, point } from 'leaflet'
 
 const MapLeaf = () => {

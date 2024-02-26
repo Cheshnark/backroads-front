@@ -1,0 +1,12 @@
+.body {
+  margin-top: 0.5rem;
+}
+
+.bodyParagraph {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.bodyPLusInfo h4 {
+  font-weight: 600;
+}

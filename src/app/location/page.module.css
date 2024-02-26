@@ -1,4 +1,20 @@
 .location {
   margin-top: 7rem;
+  padding: 0 1rem;
   background-color: #F9F4F6;
+}
+
+.location h2,
+.location p {
+  color: #161320;
+}
+
+.location h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.location hr {
+  margin: 1rem 0;
+  border: 1px solid #161320
 }

@@ -12,16 +12,16 @@ const AddComment = (e) => {
   return (
     <form onSubmit={(e) => handleSubmit(e)} className={styles.addComment}>
       <h3 className='font-berkshire'>Help other riders</h3>
-      <textarea name="" id="" cols="30" rows="10"></textarea>
-      <div>
-        <div>
+      <textarea name='' id='' rows='5' />
+      <div className='flex justify-between items-center gap-2'>
+        <div className='flex gap-2'>
           <Star />
           <Star />
           <Star />
           <Star />
           <Star />
         </div>
-        <button></button>
+        <button>Publish</button>
       </div>
     </form>
   )

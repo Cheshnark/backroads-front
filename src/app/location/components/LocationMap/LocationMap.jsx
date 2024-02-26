@@ -1,11 +1,13 @@
+'use client'
+
 import styles from './LocationMap.module.css'
+import 'leaflet/dist/leaflet.css'
 
 import { MapContainer, TileLayer } from 'react-leaflet'
-import { Map, MapPin } from 'lucide-react'
 
 const LocationMap = ({ location }) => {
   return (
-    <section className={styles.locationMap}>
+    <div className={styles.locationMap}>
       <MapContainer
         center={location.coordinates}
         zoom={13}
@@ -15,15 +17,7 @@ const LocationMap = ({ location }) => {
           url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
       </MapContainer>
-      <div>
-        <Map />
-        <p>{location.coordinates[0]} - {location.coordinates[1]} (lat, long)</p>
-      </div>
-      <div>
-        <MapPin />
-        <p>{location.address}</p>
-      </div>
-    </section>
+    </div>
   )
 }
 

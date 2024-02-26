@@ -1,0 +1,17 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+}
+
+.item02,
+.item04 {
+  justify-self: flex-end;
+}
+
+.item02 svg{
+  width: 36px;
+  height: 36px;
+}
