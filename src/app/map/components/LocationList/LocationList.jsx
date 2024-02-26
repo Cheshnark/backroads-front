@@ -25,28 +25,28 @@ const LocationList = () => {
       body: 'Panes entre panes panotes panosos.'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Panes',
       score: 4.8,
       locationType: 'castle',
       body: 'Panes entre panes panotes panosos.'
     },
     {
-      id: 3,
+      id: 5,
       title: 'Panes',
       score: 4.8,
       locationType: 'castle',
       body: 'Panes entre panes panotes panosos.'
     },
     {
-      id: 3,
+      id: 6,
       title: 'Panes',
       score: 4.8,
       locationType: 'castle',
       body: 'Panes entre panes panotes panosos.'
     },
     {
-      id: 3,
+      id: 7,
       title: 'Panes',
       score: 4.8,
       locationType: 'castle',

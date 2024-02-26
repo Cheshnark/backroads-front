@@ -2,6 +2,7 @@ import styles from './page.module.css'
 
 import MapLeaf from './components/MapLeaf/MapLeaf'
 import LocationList from './components/LocationList/LocationList'
+import LocationSearcher from './components/LocationSearcher/LocationSearcher'
 
 const Map = () => {
   return (
@@ -11,6 +12,7 @@ const Map = () => {
         <LocationList />
         <MapLeaf />
       </div>
+      <LocationSearcher />
     </main>
   )
 }
