@@ -32,7 +32,7 @@ const HonorCode = () => {
       </section>
       <section className={`${styles.codeContainer} flex flex-col justify-center items-center`}>
         <div className={styles.codeTitle}>
-          <h2>Think before you act</h2>
+          <h2 className='font-berkshire'>Think before you act</h2>
           <p>No one wants to ride along an asshole, don&apos;t be someone you wouldn&apos;t like to ride along with. Vibe, chill, drink, smoke, raise hell, but don&apos;t be an asshole. Even helmet is more optional than being an asshole. Though maybe not wearing helmet is an alpha asshole movement too.</p>
         </div>
         <div className={`${styles.honorCardsContainer} flex flex-col md:grid md:grid-cols-2 items-center md:items-start gap-8`}>

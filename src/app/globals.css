@@ -36,7 +36,7 @@ h1,
 h2,
 p,
 li {
-  color: #f9f4f6;
+  color: #F9F4F6;
 }
 
 h1,
@@ -65,4 +65,38 @@ button {
 
 button:hover {
   background-color: #3f3852;
+}
+
+/* ---------- Leaflet ----------- */
+.leaflet-container {
+  min-height: 600px;
+}
+
+@media (width >= 768px) {
+  .leaflet-container {
+    min-height: 800px;
+    height: 100%;
+  }
+}
+@media (width >= 1280px) {
+  .leaflet-container {
+    min-height: 1200px;
+  }
+}
+
+.clusterIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 3.35rem;
+  width: 3.35rem;
+
+  border-radius: 50%;
+  background-color: #F9F4F6;
+  border: 3px solid #161320;
+  transform: translate(-25%, -25%);
+
+  font-weight: 700;
+  font-size: 1.5rem;
 }

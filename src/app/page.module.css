@@ -1,0 +1,53 @@
+/* ---------- Front Section ----------*/
+.frontContainer {
+  width: 100%;
+  min-height: 700px;
+  margin: 112px auto 0 auto;
+  padding-bottom: 1.5rem;
+
+
+  background-image: url('/images/home01.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ---------- Shelter Section ----------*/
+.shelterContainer {
+  margin-top: 3rem;
+
+  overflow-x: hidden;
+}
+
+.shelterContainer h2 {
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- Honor Section ----------*/
+.honorContainer {
+  width: 100%;
+  min-height: 650px;
+  margin: 5rem auto 0 auto;
+  padding-bottom: 1.5rem;
+
+  background-image: url('/images/home02.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.honorContainer h2,
+  .honorContainer p {
+    color: #161320;
+  }
+
+.honorText {
+  position: relative;
+  bottom: 8rem;
+
+  padding: 1rem;
+
+  background-color: #F9F4F6;
+}
+
+.honorText button {
+  margin: 1.5rem auto 1rem auto;
+}

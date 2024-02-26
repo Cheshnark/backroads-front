@@ -1,0 +1,9 @@
+.locationList {
+  width: 35%;
+  min-width: 300px;
+  height: 100%;
+}
+
+.locationCard {
+  background-color: #F9F4F6;
+}
