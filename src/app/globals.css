@@ -36,7 +36,7 @@ h1,
 h2,
 p,
 li {
-  color: #F9F4F6;
+  color: #f9f4f6;
 }
 
 h1,
@@ -78,6 +78,20 @@ button:hover {
     min-height: 800px;
     height: 100%;
   }
+
+  /* ---------- Scroll bar ---------- */
+  ::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c9c7c7;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #585757;
+  }
 }
 @media (width >= 1280px) {
   .leaflet-container {
@@ -94,7 +108,7 @@ button:hover {
   width: 3.35rem;
 
   border-radius: 50%;
-  background-color: #F9F4F6;
+  background-color: #f9f4f6;
   border: 3px solid #161320;
   transform: translate(-25%, -25%);
 

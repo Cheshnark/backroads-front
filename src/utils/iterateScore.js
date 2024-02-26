@@ -13,6 +13,5 @@ export const iterateScore = (score) => {
     starArr.push(<Star />)
   }
 
-  console.log(roundLeft)
   return starArr
 }
