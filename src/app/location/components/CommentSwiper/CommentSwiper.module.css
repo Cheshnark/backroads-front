@@ -1,5 +1,7 @@
 .commentSwiper {
-padding-bottom: 3rem;
+  max-width: 1400px;
+  margin: auto;
+  padding-bottom: 3rem;
 }
 
 .commentHeader {
@@ -9,11 +11,15 @@ padding-bottom: 3rem;
 .commentHeader img {
   width: 56px;
   height: 56px;
-  
+
   border-radius: 50%;
 }
 
 .commentCard p {
   padding-bottom: 1rem;
   text-align: justify;
+}
+
+.commentCard {
+  max-width: 580px;
 }

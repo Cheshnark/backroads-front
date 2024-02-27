@@ -33,6 +33,7 @@ const Location = () => {
 
   const comments = [
     {
+      id: 1,
       user: {
         avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
         name: 'Lemmy'
@@ -42,6 +43,17 @@ const Location = () => {
       body: 'Buena mierda, te ponen unas magdalenas para mojar en el whiskey cojonudas. Y la dueña te hace unas lentejas que se te va la olla, buenos vicios al Crash Bandicoot con su hijo.'
     },
     {
+      id: 2,
+      user: {
+        avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
+        name: 'Lemmy'
+      },
+      date: '26/04/25',
+      score: 4.5,
+      body: 'Buena mierda, te ponen unas magdalenas para mojar en el whiskey cojonudas. Y la dueña te hace unas lentejas que se te va la olla, buenos vicios al Crash Bandicoot con su hijo.'
+    },
+    {
+      id: 3,
       user: {
         avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
         name: 'Lemmy'
@@ -57,13 +69,22 @@ const Location = () => {
       <LocationHeader location={location} />
       <ImageSwiper images={location.images} />
       <hr />
-      <Commodities services={location.services} locationPage={true} />
-      <Body location={location} />
-      <LocationMap location={location} />
-      <MapInfo location={location} />
+      <section className={`${styles.maxWidth} sm:flex sm:justify-between`}>
+        <div className={`${styles.infoBody} sm:flex sm:flex-col`}>
+          <Commodities services={location.services} locationPage={true} />
+          <Body location={location} />
+        </div>
+        <div className={`${styles.infoMap} sm:flex sm:flex-col`}>
+          <LocationMap location={location} />
+          <MapInfo location={location} />
+        </div>
+      </section>
       <hr />
       <section className={styles.comments}>
-        <AddComment />
+        <div className={`${styles.maxWidth} sm:flex sm: justify-between sm:items-center`}>
+          <AddComment />
+          <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
+        </div>
         <hr />
         <CommentSwiper comments={comments} />
       </section>

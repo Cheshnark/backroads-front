@@ -53,7 +53,7 @@ const CommentSwiper = ({ comments }) => {
       </div>
       <div className={`${styles.commentSwiper} hidden md:block`}>
         <h3 className='font-berkshire mb-6'>Other riders opinions</h3>
-        <div>
+        <div className={`${styles.commentGrid} grid grid-cols-2 gap-6`}>
           {comments.map(comment => (
             <article key={comment.id} className={`${styles.commentCard} flex flex-col`}>
               <header className={`${styles.commentHeader} flex justify-between items-center`}>

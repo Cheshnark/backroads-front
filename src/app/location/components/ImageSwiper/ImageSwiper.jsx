@@ -39,8 +39,8 @@ const ImageSwiper = () => {
       >
         {slides.map(slide => (
           <SwiperSlide key={slide.id}>
-            <div className='flex h-full w-full items-center justify-center'>
-              <img src={slide.src} alt={slide.alt} className='block h-full' />
+            <div className={`${styles.mainImageContainer} flex h-full w-full items-center justify-center`}>
+              <img src={slide.src} alt={slide.alt} className='block h-full' loading='lazy' />
             </div>
           </SwiperSlide>
         ))}

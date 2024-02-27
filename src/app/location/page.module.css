@@ -18,3 +18,29 @@
   margin: 1rem 0;
   border: 1px solid #161320
 }
+
+.maxWidth {
+  max-width: 1400px;
+  margin: auto;
+}
+
+@media (width >= 640px) {
+  .infoBody {
+    width: 45%;
+    max-width: 650px;
+  }
+  
+  .infoMap {
+    width: 45%;
+  }
+  .comments form {
+    width: 45%;
+  }
+
+  .addCommentText {
+    width: 45%;
+    margin-top: 1.4rem;
+
+    text-align: justify;
+  }
+}
