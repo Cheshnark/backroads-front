@@ -69,7 +69,7 @@ const Location = () => {
       <LocationHeader location={location} />
       <ImageSwiper images={location.images} />
       <hr />
-      <section className={`${styles.maxWidth} sm:flex sm:justify-between`}>
+      <section className={`${styles.info} sm:flex sm:justify-between`}>
         <div className={`${styles.infoBody} sm:flex sm:flex-col`}>
           <Commodities services={location.services} locationPage={true} />
           <Body location={location} />
@@ -82,7 +82,7 @@ const Location = () => {
       <hr />
       <section className={styles.comments}>
         <h3 className='font-berkshire'>Help other riders</h3>
-        <div className={`${styles.maxWidth} sm:flex sm: justify-between sm:items-start`}>
+        <div className='sm:flex sm: justify-between sm:items-start'>
           <AddComment />
           <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
         </div>

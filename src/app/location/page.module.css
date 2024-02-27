@@ -1,7 +1,7 @@
 .location {
   margin-top: 7rem;
   padding: 0 1rem;
-  background-color: #F9F4F6;
+  background-color: #f9f4f6;
 }
 
 .location h2,
@@ -16,10 +16,10 @@
 
 .location hr {
   margin: 1rem 0;
-  border: 1px solid #161320
+  border: 1px solid #161320;
 }
 
-.maxWidth {
+.info {
   max-width: 1400px;
   margin: auto;
 }
@@ -29,10 +29,16 @@
     width: 45%;
     max-width: 650px;
   }
-  
+
   .infoMap {
     width: 45%;
   }
+
+  .comments {
+    max-width: 1400px;
+    margin: auto;
+  }
+
   .comments form {
     width: 45%;
   }
