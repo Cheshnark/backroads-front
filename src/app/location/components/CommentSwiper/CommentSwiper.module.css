@@ -8,11 +8,12 @@ padding-bottom: 3rem;
 
 .commentHeader img {
   width: 56px;
-  height: auto;
+  height: 56px;
   
   border-radius: 50%;
 }
 
 .commentCard p {
+  padding-bottom: 1rem;
   text-align: justify;
 }

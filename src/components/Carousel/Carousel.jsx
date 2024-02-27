@@ -12,18 +12,6 @@ import { Navigation, Pagination, Thumbs, FreeMode } from 'swiper/modules'
 import Commodities from '@/components/Commodities/Commodities'
 
 const Carousel = () => {
-  // const slides = [
-  //   {
-  //     id: 1, src: '/images/home01.webp', alt: 'First'
-  //   },
-  //   {
-  //     id: 2, src: '/images/home02.webp', alt: 'Second'
-  //   },
-  //   {
-  //     id: 3, src: '/images/login01.webp', alt: 'Third'
-  //   }
-  // ]
-
   const slides = [
     {
       id: 1,

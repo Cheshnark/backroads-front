@@ -40,6 +40,15 @@ const Location = () => {
       date: '26/04/25',
       score: 4.5,
       body: 'Buena mierda, te ponen unas magdalenas para mojar en el whiskey cojonudas. Y la dueña te hace unas lentejas que se te va la olla, buenos vicios al Crash Bandicoot con su hijo.'
+    },
+    {
+      user: {
+        avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
+        name: 'Lemmy'
+      },
+      date: '26/04/25',
+      score: 4.5,
+      body: 'Buena mierda, te ponen unas magdalenas para mojar en el whiskey cojonudas. Y la dueña te hace unas lentejas que se te va la olla, buenos vicios al Crash Bandicoot con su hijo.'
     }
   ]
 
