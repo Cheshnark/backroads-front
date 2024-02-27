@@ -115,3 +115,17 @@ button:hover {
   font-weight: 700;
   font-size: 1.5rem;
 }
+
+/* ---------- Swiper Arrows ---------- */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #F9F4F6 !important;
+}
+
+.swiper-button-prev {
+  padding-left: 2rem;
+}
+
+.swiper-button-next {
+  padding-right: 2rem;
+}

@@ -2,10 +2,10 @@ import styles from './Commodities.module.css'
 
 import { Utensils, Droplet, Zap, Warehouse, Wifi, ShoppingBasket, ShowerHead, Trash2 } from 'lucide-react'
 
-const Commodities = ({ services }) => {
+const Commodities = ({ services, locationPage }) => {
   return (
     <section className={`${styles.commodities} flex flex-wrap items-center gap-2`}>
-      <h3 className='font-berkshire'>Services: </h3>
+      {locationPage && <h3 className='font-berkshire'>Services: </h3>}
       <div className='flex flex-wrap gap-2'>
         {services.water && <div className={styles.commoditiesIcons}><Droplet /></div>}
         {services.electricity && <div className={styles.commoditiesIcons}><Zap /></div>}

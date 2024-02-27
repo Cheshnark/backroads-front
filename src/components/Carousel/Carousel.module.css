@@ -1,5 +1,21 @@
-.carouselCard {
-  width: 250px;
+.cardContainer {
+  min-width: 320px;
+}
 
-  background-color: #F9F4F6;
+.cardContainer h4 {
+  font-size: 1.7rem;
+}
+
+.cardContainer p {
+  color: #161320;
+  text-align: justify;
+}
+
+@media (width >= 768px) {
+  .cardContainer {
+    min-width: 340px;
+    padding: 0.7rem;
+
+    background-color: #F9F4F6;
+  }
 }

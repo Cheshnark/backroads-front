@@ -36,7 +36,7 @@ const Location = () => {
       <LocationHeader location={location} />
       <ImageSwiper images={location.images} />
       <hr />
-      <Commodities services={location.services} />
+      <Commodities services={location.services} locationPage={true} />
       <Body location={location} />
       <LocationMap location={location} />
       <MapInfo location={location} />

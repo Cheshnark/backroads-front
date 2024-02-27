@@ -1,7 +1,7 @@
 import styles from './page.module.css'
 import Link from 'next/link'
 
-// import Carousel from '@/components/Carousel/Carousel'
+import Carousel from '@/components/Carousel/Carousel'
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       </section>
       <section className={`${styles.shelterContainer} flex flex-col justify-center items-center`}>
         <h2 className='font-berkshire'>Shelters</h2>
-        {/* <Carousel /> */}
+        <Carousel />
       </section>
       <section className={`${styles.honorContainer} flex justify-center items-center`}>
         <div className={`${styles.cards} flex justify-center relative`}>

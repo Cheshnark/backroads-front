@@ -14,8 +14,6 @@
 /* ---------- Shelter Section ----------*/
 .shelterContainer {
   margin-top: 3rem;
-
-  overflow-x: hidden;
 }
 
 .shelterContainer h2 {
