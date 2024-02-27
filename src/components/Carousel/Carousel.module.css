@@ -1,8 +1,12 @@
 .cardContainer {
   min-width: 320px;
+  padding: 0.7rem;
+
+  background-color: #f9f4f6;
 }
 
 .cardContainer h4 {
+  margin-top: 0.5rem;
   font-size: 1.7rem;
 }
 
@@ -11,11 +15,13 @@
   text-align: justify;
 }
 
+.cardContainer section svg {
+  width: 36px;
+  height: 36px;
+}
+
 @media (width >= 768px) {
   .cardContainer {
     min-width: 340px;
-    padding: 0.7rem;
-
-    background-color: #F9F4F6;
   }
 }

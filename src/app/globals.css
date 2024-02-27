@@ -119,13 +119,6 @@ button:hover {
 /* ---------- Swiper Arrows ---------- */
 .swiper-button-next,
 .swiper-button-prev {
-    color: #F9F4F6 !important;
-}
-
-.swiper-button-prev {
-  padding-left: 2rem;
-}
-
-.swiper-button-next {
-  padding-right: 2rem;
+  color: #f9f4f6 !important;
+  text-shadow: 2px 1px 2px #161320;
 }

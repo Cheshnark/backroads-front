@@ -9,7 +9,7 @@ import 'swiper/css/free-mode'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Thumbs, FreeMode } from 'swiper/modules'
 
-import Commodities from '@/app/location/components/Commodities/Commodities'
+import Commodities from '@/components/Commodities/Commodities'
 
 const Carousel = () => {
   // const slides = [
@@ -63,8 +63,7 @@ const Carousel = () => {
         wifi: true,
         shop: true
       }
-    }
-    ,
+    },
     {
       id: 4,
       img: '/images/login01.webp',
@@ -116,7 +115,7 @@ const Carousel = () => {
         {slides.map(slide => (
           <SwiperSlide key={slide.id}>
             <div className={`${styles.cardContainer} flex flex-col h-full w-full items-start justify-center`}>
-              <img src={slide.img} alt={slide.alt} className='block h-full' />
+              <img src={slide.img} alt={slide.alt} className='block' />
               <div className='flex flex-col'>
                 <h4 className='font-berkshire'>{slide.title}</h4>
                 <p>{slide.body}</p>
