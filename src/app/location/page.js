@@ -81,7 +81,8 @@ const Location = () => {
       </section>
       <hr />
       <section className={styles.comments}>
-        <div className={`${styles.maxWidth} sm:flex sm: justify-between sm:items-center`}>
+        <h3 className='font-berkshire'>Help other riders</h3>
+        <div className={`${styles.maxWidth} sm:flex sm: justify-between sm:items-start`}>
           <AddComment />
           <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
         </div>

@@ -8,9 +8,43 @@
 
 .addComment textarea:focus {
   outline: none;
-  border: 2px solid black;
+  border: 2px solid #161320;
 }
 
 .addComment ::-webkit-resizer {
-  color: black;
+  color: #161320;
+}
+
+
+/* ---------- Star Button ---------- */
+.starButton {
+  width: 15%;
+  padding: 0;
+
+  color: #161320;
+  background-color: transparent;
+}
+
+.starButton:hover {
+  color: #D14836;
+  background-color: transparent;
+}
+
+.addComment input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 5px;
+}
+
+/* ---------- Error ---------- */
+.errorContainer {
+  margin-top: 1rem;
+}
+
+.errorContainer>p:first-child {
+  color: #D14836;
 }
