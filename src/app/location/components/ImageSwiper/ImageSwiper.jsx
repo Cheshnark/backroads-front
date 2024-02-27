@@ -45,24 +45,25 @@ const ImageSwiper = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={12}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[Navigation, FreeMode, Thumbs]}
-        className='thumbs mt-3 h-32 w-full'
-      >
-        {slides.map(slide => (
-          <SwiperSlide key={slide.id}>
-            <div className='flex h-full w-full items-center justify-center'>
-              <img src={slide.src} alt={slide.alt} className='block h-full' />
-            </div>
-          </SwiperSlide>
-        ))}
-
-      </Swiper>
+      <div className='hidden sm:block'>
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={12}
+          slidesPerView={4}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[Navigation, FreeMode, Thumbs]}
+          className='thumbs mt-3 h-32 w-full'
+        >
+          {slides.map(slide => (
+            <SwiperSlide key={slide.id}>
+              <div className='flex h-full w-full items-center justify-center'>
+                <img src={slide.src} alt={slide.alt} className='block h-full' />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   )
 }

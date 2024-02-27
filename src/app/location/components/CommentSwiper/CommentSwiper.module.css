@@ -1,0 +1,18 @@
+.commentSwiper {
+padding-bottom: 3rem;
+}
+
+.commentHeader {
+  margin-bottom: 1rem;
+}
+
+.commentHeader img {
+  width: 56px;
+  height: auto;
+  
+  border-radius: 50%;
+}
+
+.commentCard p {
+  text-align: justify;
+}
