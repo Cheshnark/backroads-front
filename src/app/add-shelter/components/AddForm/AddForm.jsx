@@ -16,16 +16,14 @@ const AddForm = () => {
     body: '',
     locationType: '',
     address: '',
-    services: {
-      water: false,
-      electricity: false,
-      shower: false,
-      trash: false,
-      restaurant: false,
-      gated: false,
-      wifi: false,
-      shop: false
-    },
+    water: false,
+    electricity: false,
+    shower: false,
+    trash: false,
+    restaurant: false,
+    gated: false,
+    wifi: false,
+    shop: false,
     price: false,
     openingHours: '',
     images: []
@@ -33,13 +31,39 @@ const AddForm = () => {
 
   const handleChange = (e) => {
     const key = e.target.id
-    const value = e.target.value
+    let value = e.target.value
+
+    if (value === 'on') {
+      value = true
+    }
 
     setFormData({ ...formData, [key]: value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const addJson = {
+      userId: '',
+      coordinates: [],
+      title: '',
+      body: '',
+      locationType: '',
+      address: '',
+      services: {
+        water: false,
+        electricity: false,
+        shower: false,
+        trash: false,
+        restaurant: false,
+        gated: false,
+        wifi: false,
+        shop: false
+      },
+      price: false,
+      openingHours: '',
+      images: []
+    }
 
     console.log(formData)
   }
