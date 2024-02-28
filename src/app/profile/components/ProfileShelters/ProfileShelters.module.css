@@ -1,0 +1,27 @@
+.profileShelters {
+  min-height: 100px;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  background-color: #161320;
+}
+
+.profileShelters h3 {
+  padding-bottom: 0.5rem;
+  color: #F9F4F6;
+}
+
+.shelterCardsContainer {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+.shelterCard {
+  padding: 0.2rem 0.5rem;
+  
+  background-color: #F9F4F6;
+}
+
+.shelterCard h3 {
+  color: #161320;
+}

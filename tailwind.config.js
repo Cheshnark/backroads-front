@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         berkshire: ['var(--font-berkshire)'],
         rubik: ['var(--font-rubik)']
+      },
+      colors: {
+        bikerRed: '#D14836'
       }
     }
   },

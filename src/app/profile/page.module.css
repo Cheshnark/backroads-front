@@ -1,7 +1,13 @@
 .profile {
   margin-top: 7rem;
+  padding: 1rem 0 1.5rem 0;
 
   background-color: #F9F4F6;
+}
+
+.profileContainer {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .profile h2,
@@ -9,6 +15,23 @@
   color: #161320;
 }
 
+.profile h4 {
+  font-size: 1.2rem;
+}
+
+.profile hr {
+  margin: 1rem 0;
+  border: 1px solid #161320;
+}
+
+.profileInfo {
+  margin-top: 0.5rem;
+}
+
 .profileSocial span {
   font-weight: 600;
+}
+
+.profileBike {
+  margin-top: 1rem;
 }

@@ -1,0 +1,22 @@
+/* ---------- Bike Avatar ---------- */
+.profileBike {
+  max-width: 320px;
+}
+
+@media (width >= 768px) {
+  .profileBike {
+    max-width: 685px;
+  }
+}
+
+.bikeCard {
+  border: 1px solid #161320;
+}
+
+.bikeCard p:last-child {
+  width: 100%;
+
+  text-align: center;
+  background-color: #161320;
+  color: #F9F4F6;
+}
