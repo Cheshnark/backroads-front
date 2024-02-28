@@ -23,17 +23,25 @@ const Profile = () => {
 
   return (
     <main className={styles.profile}>
-      <h1 className='font-berkshire'>Profile</h1>
+      <h2 className='font-berkshire'>Profile</h2>
       <div>
         {profile &&
           <section>
             <div>
-              <h3 >{profile?.name}</h3>
+              <h3 className='font-rubik'>User name: {profile?.name}</h3>
+              <h4>Email: {profile?.email}</h4>
+            </div>
+            <div>
+              <h4 className='font-berkshire'>Description</h4>
+              <p>{profile?.description}</p>
             </div>
             <div className={styles.profileSocial}>
-              <h3>{profile?.email}</h3>
+              <p><span>Web: </span>{profile?.website}</p>
+              <p><span>Facebook: </span>{profile?.facebook}</p>
+              <p><span>Instagram: </span>{profile?.instagram}</p>
+              <p><span>Twitter: </span>{profile?.twitter}</p>
+              <p><span>Youtube: </span>{profile?.youtube}</p>
             </div>
-
           </section>}
         <div>
           <section className={styles.profileBike}>
