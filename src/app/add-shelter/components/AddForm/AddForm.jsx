@@ -11,15 +11,13 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
 
   const handleChange = (e) => {
     const key = e.target.id
-    let value = false
+    let value = e.target.value
 
-    if (formData[key] === true) {
+    if (value === 'on' && formData[key] === true) {
       value = false
-    } else {
+    } else if (value === 'on') {
       value = true
     }
-
-    console.log(value)
 
     setFormData({ ...formData, [key]: value })
   }

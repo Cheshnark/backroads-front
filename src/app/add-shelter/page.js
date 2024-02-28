@@ -3,6 +3,8 @@
 import styles from './page.module.css'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
 import AddMap from './components/AddMap/AddMap'
 import AddForm from './components/AddForm/AddForm'
@@ -10,6 +12,7 @@ import { reverseGeocode } from '@/utils/geocode'
 
 const AddShelter = () => {
   const [position, setPosition] = useState({ lat: 55.62557303452915, lng: 37.54526138305665 })
+  const [error, setError] = useState(null)
   const [formData, setFormData] = useState({
     userId: '',
     coordinates: [],
@@ -29,6 +32,7 @@ const AddShelter = () => {
     openingHours: '',
     images: []
   })
+  const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -37,7 +41,7 @@ const AddShelter = () => {
     const address = await reverseGeocode(lat, lng)
 
     const addJson = {
-      userId: '',
+      userId: '9b47139c-56d9-49d2-81dc-4630464e2355',
       coordinates: [lat, lng],
       title: formData.title,
       body: formData.body,
@@ -58,7 +62,22 @@ const AddShelter = () => {
       images: []
     }
 
-    console.log(addJson)
+    try {
+      const res = await axios.post('http://127.0.0.1:8000/api/location/locations', addJson, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const data = await res.data
+      if (!data) {
+        setError({ message: 'Fetch failed, try again later' })
+      }
+
+      router.push('/map')
+    } catch (error) {
+      setError({ message: 'Error creating shelter, try again later' })
+    }
   }
 
   return (
@@ -66,8 +85,9 @@ const AddShelter = () => {
       <h2 className='font-berkshire'>Add a Shelter</h2>
       <div className='flex gap-4'>
         <AddMap position={position} setPosition={setPosition} />
-        <AddForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit}/>
+        <AddForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} />
       </div>
+      {error && <p className={styles.error}>{error.message}</p>}
     </main>
   )
 }

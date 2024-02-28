@@ -14,3 +14,11 @@
   margin: 1rem 0;
   border: 1px solid #161320;
 }
+
+.error {
+  margin-top: 1rem;
+  text-align: right;
+
+  color: #D14836;
+  font-weight: 600;
+}
