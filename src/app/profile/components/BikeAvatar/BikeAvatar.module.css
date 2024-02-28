@@ -13,6 +13,10 @@
   border: 1px solid #161320;
 }
 
+.bikeCard label:hover {
+  cursor: pointer;
+}
+
 .bikeCard p:last-child {
   width: 100%;
 
