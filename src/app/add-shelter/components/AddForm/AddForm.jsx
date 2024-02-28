@@ -2,32 +2,12 @@
 
 import styles from './AddForm.module.css'
 
-import { useState } from 'react'
 // import { useRouter } from 'next/navigation'
 // import axios from 'axios'
 
-const AddForm = () => {
+const AddForm = ({ formData, setFormData, handleSubmit }) => {
   // const [error, setError] = useState(null)
   // const router = useRouter()
-  const [formData, setFormData] = useState({
-    userId: '',
-    coordinates: [],
-    title: '',
-    body: '',
-    locationType: '',
-    address: '',
-    water: false,
-    electricity: false,
-    shower: false,
-    trash: false,
-    restaurant: false,
-    gated: false,
-    wifi: false,
-    shop: false,
-    price: false,
-    openingHours: '',
-    images: []
-  })
 
   const handleChange = (e) => {
     const key = e.target.id
@@ -38,34 +18,6 @@ const AddForm = () => {
     }
 
     setFormData({ ...formData, [key]: value })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    const addJson = {
-      userId: '',
-      coordinates: [],
-      title: '',
-      body: '',
-      locationType: '',
-      address: '',
-      services: {
-        water: false,
-        electricity: false,
-        shower: false,
-        trash: false,
-        restaurant: false,
-        gated: false,
-        wifi: false,
-        shop: false
-      },
-      price: false,
-      openingHours: '',
-      images: []
-    }
-
-    console.log(formData)
   }
 
   return (
@@ -174,8 +126,8 @@ const AddForm = () => {
         />
       </div>
       <hr />
-      {/* <h3 className='font-berkshire'>Add some pictures</h3>
-      <input type='file' /> */}
+      <h3 className='font-berkshire'>Add some pictures</h3>
+      <input type='file' />
       <button type='submit'>Publish</button>
       {/* {error && <p className={styles.registerError}>{error}</p>} */}
     </form>
