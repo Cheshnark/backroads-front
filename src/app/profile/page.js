@@ -30,21 +30,21 @@ const Profile = () => {
     <main className={styles.profile}>
       <div className={styles.profileContainer}>
         <h2 className='font-berkshire'>Profile</h2>
-        <div>
+        <div className='md:flex gap-4'>
           {profile &&
             <section className={`${styles.profileInfo} flex flex-col gap-4`}>
               <div>
                 <h3 className='font-rubik'><span className='font-berkshire'>User name: </span>{profile?.name}</h3>
                 <h4 className='font-rubik'><span className='font-berkshire'>Email: </span>{profile?.email}</h4>
               </div>
-              <div>
+              <div className={styles.profileDescription}>
                 <h4 className='font-berkshire'>Description</h4>
                 <p>{profile?.description}</p>
               </div>
               <ProfileMedia />
             </section>}
-          <div>
-            <hr />
+          <div className={`${styles.rigthColumn} flex flex-col gap-4`}>
+            <hr className='md:hidden' />
             <BikeAvatar profile={profile} clicked={clicked} setCliked={setCliked} />
             <ProfileShelters />
           </div>

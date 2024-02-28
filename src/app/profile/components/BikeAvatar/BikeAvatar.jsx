@@ -69,7 +69,7 @@ const BikeAvatar = ({ clicked, setCliked }) => {
           </div>
         ))}
       </div>
-      <hr />
+      <hr className='md:hidden' />
     </section>
   )
 }
