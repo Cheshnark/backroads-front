@@ -20,18 +20,21 @@ const NavBar = () => {
       <Menu className={styles.menuIcon} onClick={() => setShowDrawer(true)} />
       <ul>
         <li><Link href='/map'>Map</Link></li>
-        <li><Link href='/honor-code'>Honor Code</Link></li >
-        <li><Link href='/faq'>FAQ</Link></li >
+        <li><Link href='/honor-code'>Honor Code</Link></li>
+        <li><Link href='/faq'>FAQ</Link></li>
         {session
           ? (
-            <li><Link href='/profile'>Profile</Link></li >)
+            <>
+            <li><Link href='/add-shelter'>Add Shelter</Link></li>
+            <li><Link href='/profile'>Profile</Link></li>
+            </>)
           : (
-            <li><Link href='/login'>Login</Link></li >)}
-      </ul >
+            <li><Link href='/login'>Login</Link></li>)}
+      </ul>
       {showDrawer &&
         <DrawerComponent session={session} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
       }
-    </nav >
+    </nav>
   )
 }
 

@@ -19,11 +19,14 @@ const Footer = () => {
             <li><Link href='/faq'>FAQ</Link></li>
             {user
               ? (
-                <li><Link href='/profile'>Profile</Link></li >)
+                <>
+                  <li><Link href='/add-shelter'>Add Shelter</Link></li>
+                  <li><Link href='/profile'>Profile</Link></li>
+                </>)
               : (
-                <li><Link href='/login'>Login</Link></li >)}
-          </ul >
-        </div >
+                <li><Link href='/login'>Login</Link></li>)}
+          </ul>
+        </div>
         <div>
           <h3>Contact</h3>
           <ul className='flex flex-col gap-4'>
@@ -51,11 +54,11 @@ const Footer = () => {
             <li><a href='https://www.instagram.com/backroadsculture/' target='_blank' rel='noreferrer'><Instagram /></a></li>
           </ul>
         </div>
-      </div >
+      </div>
       <div className={`${styles.copyrightContainer} flex justify-center`}>
         <p>Backroads ©{year}</p>
       </div>
-    </footer >
+    </footer>
   )
 }
 
