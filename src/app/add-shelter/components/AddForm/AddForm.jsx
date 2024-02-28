@@ -11,11 +11,15 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
 
   const handleChange = (e) => {
     const key = e.target.id
-    let value = e.target.value
+    let value = false
 
-    if (value === 'on') {
+    if (formData[key] === true) {
+      value = false
+    } else {
       value = true
     }
+
+    console.log(value)
 
     setFormData({ ...formData, [key]: value })
   }
@@ -64,7 +68,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='water'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.water}
         />
@@ -72,7 +75,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='electricity'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.electricity}
         />
@@ -80,7 +82,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='shower'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.shower}
         />
@@ -88,7 +89,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='trash'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.trash}
         />
@@ -96,7 +96,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='restaurant'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.restaurant}
         />
@@ -104,7 +103,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='gated'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.gated}
         />
@@ -112,7 +110,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='wifi'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.wifi}
         />
@@ -120,7 +117,6 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         <input
           id='shop'
           type='checkbox'
-          placeholder='Opens/Closes...'
           onChange={(e) => handleChange(e)}
           value={formData?.services?.shop}
         />

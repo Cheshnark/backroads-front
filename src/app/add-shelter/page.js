@@ -6,9 +6,10 @@ import { useState } from 'react'
 
 import AddMap from './components/AddMap/AddMap'
 import AddForm from './components/AddForm/AddForm'
+import { reverseGeocode } from '@/utils/geocode'
 
 const AddShelter = () => {
-  const [position, setPosition] = useState([55.62799595426723, 37.52929687500001])
+  const [position, setPosition] = useState({ lat: 55.62557303452915, lng: 37.54526138305665 })
   const [formData, setFormData] = useState({
     userId: '',
     coordinates: [],
@@ -29,32 +30,35 @@ const AddShelter = () => {
     images: []
   })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    const lat = position.lat
+    const lng = position.lng
+    const address = await reverseGeocode(lat, lng)
 
     const addJson = {
       userId: '',
-      coordinates: [],
-      title: '',
-      body: '',
-      locationType: '',
-      address: '',
+      coordinates: [lat, lng],
+      title: formData.title,
+      body: formData.body,
+      locationType: formData.locationType,
+      address,
       services: {
-        water: false,
-        electricity: false,
-        shower: false,
-        trash: false,
-        restaurant: false,
-        gated: false,
-        wifi: false,
-        shop: false
+        water: formData.water,
+        electricity: formData.electricity,
+        shower: formData.shower,
+        trash: formData.trash,
+        restaurant: formData.restaurant,
+        gated: formData.gated,
+        wifi: formData.wifi,
+        shop: formData.shop
       },
-      price: false,
-      openingHours: '',
+      price: formData.price,
+      openingHours: formData.openingHours,
       images: []
     }
 
-    console.log(formData)
+    console.log(addJson)
   }
 
   return (
