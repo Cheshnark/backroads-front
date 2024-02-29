@@ -9,6 +9,7 @@ import axios from 'axios'
 import AddMap from './components/AddMap/AddMap'
 import AddForm from './components/AddForm/AddForm'
 import { reverseGeocode } from '@/utils/geocode'
+import useAuthStore from '@/stores/AuthStore'
 
 const AddShelter = () => {
   const [position, setPosition] = useState({ lat: 55.62557303452915, lng: 37.54526138305665 })
@@ -33,6 +34,7 @@ const AddShelter = () => {
     images: []
   })
   const router = useRouter()
+  const { session } = useAuthStore()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -41,7 +43,7 @@ const AddShelter = () => {
     const address = await reverseGeocode(lat, lng)
 
     const addJson = {
-      userId: '9b47139c-56d9-49d2-81dc-4630464e2355',
+      userId: session.data.attributes.id,
       coordinates: [lat, lng],
       title: formData.title,
       body: formData.body,

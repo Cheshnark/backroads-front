@@ -1,4 +1,9 @@
+'use client'
+
 import styles from './page.module.css'
+
+import axios from 'axios'
+import { useParams } from 'next/navigation'
 
 import ImageSwiper from './components/ImageSwiper/ImageSwiper'
 import Commodities from '@/components/Commodities/Commodities'
@@ -8,28 +13,22 @@ import CommentSwiper from './components/CommentSwiper/CommentSwiper'
 import LocationHeader from './components/LocationHeader/LocationHeader'
 import LocationMap from './components/LocationMap/LocationMap'
 import MapInfo from './components/MapInfo/MapInfo'
+import { useEffect, useState } from 'react'
 
 const Location = () => {
-  const location = {
-    coordinates: [-3.4589, 30.5489],
-    title: 'Panes',
-    score: 3.5,
-    locationType: 'Camp site',
-    body: 'Lorem ipsum ipsum sum. Lorem ipsum ipsum sum. Lorem ipsum ipsum sum. Lorem ipsum ipsum sum. Lorem ipsum ipsum sum. Lorem ipsum ipsum sum. Lorem ipsum ipsum sum.',
-    address: 'Casa del mazapán, C/ de la Piruleta',
-    price: '15€',
-    openingHours: 'Mazo de tiempo',
-    services: {
-      water: true,
-      electricity: true,
-      shower: true,
-      restaurant: true,
-      gated: true,
-      wifi: true,
-      shop: true,
-      trash: true
+  const [location, setLocation] = useState(null)
+  const locationId = useParams().id
+
+  useEffect(() => {
+    const fetchLocation = async () => {
+      const res = await axios.get(`http://127.0.0.1:8000/api/location/locations/${locationId}`)
+      const data = await res.data
+
+      setLocation(data.data)
     }
-  }
+
+    fetchLocation()
+  }, [])
 
   const comments = [
     {
@@ -67,11 +66,11 @@ const Location = () => {
   return (
     <main className={styles.location}>
       <LocationHeader location={location} />
-      <ImageSwiper images={location.images} />
+      <ImageSwiper images={location?.images} />
       <hr />
       <section className={`${styles.info} sm:flex sm:justify-between`}>
         <div className={`${styles.infoBody} sm:flex sm:flex-col`}>
-          <Commodities services={location.services} locationPage={true} />
+          <Commodities services={location?.services} locationPage={true} />
           <Body location={location} />
         </div>
         <div className={`${styles.infoMap} sm:flex sm:flex-col`}>

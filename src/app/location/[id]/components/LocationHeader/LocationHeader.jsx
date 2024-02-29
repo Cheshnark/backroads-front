@@ -17,7 +17,7 @@ const LocationHeader = ({ location }) => {
         {iterateScore(location?.score)}
       </div>
       <div className={styles.item04}>
-        <p>{location.locationType}</p>
+        <p>{location?.locationType}</p>
       </div>
     </header>
   )
