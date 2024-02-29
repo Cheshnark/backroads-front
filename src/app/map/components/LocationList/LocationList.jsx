@@ -1,65 +1,16 @@
-import { iterateScore } from '@/utils/iterateScore'
 import styles from './LocationList.module.css'
 
-const LocationList = () => {
-  const locations = [
-    {
-      id: 1,
-      title: 'Panes',
-      score: 4.2,
-      locationType: 'castle',
-      body: 'Panes entre panes panotes panosos.'
-    },
-    {
-      id: 2,
-      title: 'Panes',
-      score: 3.2,
-      locationType: 'castle',
-      body: 'Panes entre panes panotes panosos.'
-    },
-    {
-      id: 3,
-      title: 'Panes',
-      score: 4.8,
-      locationType: 'castle',
-      body: 'Panes entre panes panotes panosos.'
-    },
-    {
-      id: 4,
-      title: 'Panes',
-      score: 4.8,
-      locationType: 'castle',
-      body: 'Panes entre panes panotes panosos.'
-    },
-    {
-      id: 5,
-      title: 'Panes',
-      score: 4.8,
-      locationType: 'castle',
-      body: 'Panes entre panes panotes panosos.'
-    },
-    {
-      id: 6,
-      title: 'Panes',
-      score: 4.8,
-      locationType: 'castle',
-      body: 'Panes entre panes panotes panosos.'
-    },
-    {
-      id: 7,
-      title: 'Panes',
-      score: 4.8,
-      locationType: 'castle',
-      body: 'Panes entre panes panotes panosos.'
-    }
-  ]
+import Link from 'next/link'
 
+import { iterateScore } from '@/utils/iterateScore'
+
+const LocationList = ({ locations }) => {
   return (
     <section className={`${styles.locationList} hidden md:flex flex-col gap-4`}>
       {locations.map(location => (
         <article key={location.id} className={styles.locationCard}>
           <header className='flex justify-between items-end mb-2'>
-            <h3 className='font-berkshire text-3xl'>{location.title}</h3>
+            <Link href={`/location/${location.id}`}><h3 className='font-berkshire text-3xl'>{location.title}</h3></Link>
             <p className='text-sm'>- {location.locationType}</p>
           </header>
           <p>{location.body}</p>

@@ -21,3 +21,11 @@
   padding: 1rem 2rem;
   background-color: #f9f4f6;
 }
+
+.locationCard h3 {
+  max-width: 185px;
+}
+
+.locationCard h3:hover {
+  color: #D14836;
+}

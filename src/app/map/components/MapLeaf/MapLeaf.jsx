@@ -24,8 +24,6 @@ const MapLeaf = ({ locations }) => {
     })
   }
 
-  console.log(locations)
-
   return (
     <section className={styles.mapLeaf}>
       <MapContainer
@@ -50,7 +48,7 @@ const MapLeaf = ({ locations }) => {
                   </div>
                   <p className='font-rubik'>{location.body}</p>
                   <div className='flex'>
-                    {iterateScore(location.score)}
+                    {iterateScore(location.score, location.id)}
                   </div>
                 </div>
               </Popup>

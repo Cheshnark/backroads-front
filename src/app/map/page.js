@@ -13,7 +13,7 @@ const Map = async () => {
     <main className={styles.map}>
       <h2 className='font-berkshire mb-6 text-center'>Map</h2>
       <div className={`${styles.mapContainer} md:flex gap-4`}>
-        <LocationList />
+        <LocationList locations={locations} />
         <MapLeaf locations={locations} />
       </div>
       <LocationSearcher />

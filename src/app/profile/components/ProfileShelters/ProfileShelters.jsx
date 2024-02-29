@@ -35,7 +35,7 @@ const ProfileShelters = ({ profile }) => {
               <div className='flex flex-col gap-2'>
                 <h3 className='font-berkshire flex items-center'><FlameKindling />{shelter.title}</h3>
                 <div className='flex'>
-                  {iterateScore(shelter.score)}
+                  {iterateScore(shelter.score, shelter.id)}
                 </div>
               </div>
               <p>- {shelter.location_type}</p>
