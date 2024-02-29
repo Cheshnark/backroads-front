@@ -2,3 +2,25 @@
   width: 100%;
   height: auto;
 }
+
+.mapPopUp {
+  max-width: 250px;
+}
+
+.mapPopUp a {
+  color: #161320;
+}
+
+.mapPopUp a:hover {
+  color: #D14836;
+}
+
+.mapLeaf h4 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.mapLeaf p {
+  text-align: justify;
+  color: #161320;
+}

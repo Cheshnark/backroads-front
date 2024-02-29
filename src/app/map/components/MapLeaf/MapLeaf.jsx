@@ -7,26 +7,11 @@ import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import { Icon, divIcon, point } from 'leaflet'
+import Link from 'next/link'
 
-const MapLeaf = () => {
-  const markers = [
-    {
-      id: 1,
-      geocode: [40.4168, -3.7038],
-      popUp: 'Hello, jello!'
-    },
-    {
-      id: 2,
-      geocode: [40.4168, -3.20],
-      popUp: 'Hello, jello hello!'
-    },
-    {
-      id: 3,
-      geocode: [40.4168, -3.90],
-      popUp: 'Hello, jello mello!'
-    }
-  ]
+import { iterateScore } from '@/utils/iterateScore'
 
+const MapLeaf = ({ locations }) => {
   const customIcon = new Icon({
     iconUrl: '/images/bonfire01.webp',
     iconSize: [38, 38]
@@ -38,6 +23,8 @@ const MapLeaf = () => {
       iconSize: point(33, 33, true)
     })
   }
+
+  console.log(locations)
 
   return (
     <section className={styles.mapLeaf}>
@@ -53,10 +40,19 @@ const MapLeaf = () => {
           chunkedLoading
           iconCreateFunction={createCustomClusterIcon}
         >
-          {markers.map(marker => (
-            <Marker key={marker.id} position={marker.geocode} icon={customIcon}>
+          {locations.map(location => (
+            <Marker key={location.id} position={location.coordinates} icon={customIcon}>
               <Popup>
-                <h4>{marker.popUp}</h4>
+                <div className={styles.mapPopUp}>
+                  <div className='flex justify-between items-center'>
+                    <Link href={`/location/${location.id}`}><h4 className='font-berkshire'>{location.title}</h4></Link>
+                    <p className='font-rubik'>- {location.locationType}</p>
+                  </div>
+                  <p className='font-rubik'>{location.body}</p>
+                  <div className='flex'>
+                    {iterateScore(location.score)}
+                  </div>
+                </div>
               </Popup>
             </Marker>
           ))}
