@@ -1,7 +1,7 @@
 import styles from './page.module.css'
 
 import ImageSwiper from './components/ImageSwiper/ImageSwiper'
-import Commodities from '../../components/Commodities/Commodities'
+import Commodities from '@/components/Commodities/Commodities'
 import Body from './components/Body/Body'
 import AddComment from './components/AddComment/AddComment'
 import CommentSwiper from './components/CommentSwiper/CommentSwiper'
