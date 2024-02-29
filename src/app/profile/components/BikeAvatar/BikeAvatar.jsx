@@ -2,13 +2,13 @@
 
 import styles from './BikeAvatar.module.css'
 
-const BikeAvatar = ({ bikesArr, clicked, setCliked, setShowPicker }) => {
+const BikeAvatar = ({ bikesArr, clicked, setClicked, setShowPicker }) => {
   const handleClick = (e) => {
     const bike = bikesArr.find((element) => {
       return element.text === e.target.value
     })
 
-    setCliked(bike)
+    setClicked(bike)
     setTimeout(() => {
       setShowPicker(false)
     }, 5)

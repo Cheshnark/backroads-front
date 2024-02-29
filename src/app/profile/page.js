@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { PencilLine, Check, X } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 import useAuthStore from '@/stores/AuthStore'
 import BikeAvatar from './components/BikeAvatar/BikeAvatar'
@@ -16,6 +17,7 @@ const Profile = () => {
   const [showPicker, setShowPicker] = useState(false)
   const [showEditdescription, setShowEditDescription] = useState(false)
   const [tempDescription, setTempDescription] = useState(null)
+  const [error, setError] = useState(null)
   const [tempSocial, setTempSocial] = useState({
     website: null,
     facebook: null,
@@ -23,11 +25,12 @@ const Profile = () => {
     twitter: null,
     youtube: null
   })
-  const [clicked, setCliked] = useState({
-    id: 111,
+  const [clicked, setClicked] = useState({
+    id: null,
     img: '/images/profile/cycle01.png',
-    text: 'Mop'
+    text: null
   })
+  const router = useRouter()
   const { session } = useAuthStore()
 
   const bikesArr = [
@@ -84,15 +87,39 @@ const Profile = () => {
       const data = await res.data
 
       setProfile(data.data)
+      setClicked({ ...clicked, img: data.data.profile_img })
     }
 
     fetchProfile()
   }, [])
 
-  const handleSubmit = () => {
-    console.log(tempDescription)
-    console.log(tempSocial)
-    console.log(clicked)
+  const handleSubmit = async () => {
+    const profileJson = {
+      description: tempDescription || profile.description,
+      profileImg: clicked.img || profile?.profile_img,
+      website: tempSocial.website || profile.website,
+      facebook: tempSocial.facebook || profile.facebook,
+      instagram: tempSocial.instagram || profile.instagram,
+      twitter: tempSocial.twitter || profile.twitter,
+      youtube: tempSocial.youtube || profile.youtube
+    }
+
+    try {
+      const res = await axios.patch(`http://127.0.0.1:8000/api/user/profiles/${profile.id}`, profileJson, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const data = await res.data
+      if (!data) {
+        setError({ message: 'Fetch failed, try again later' })
+      }
+
+      router.push('/')
+    } catch (error) {
+      setError({ message: 'Error updating profile, try again later' })
+    }
   }
 
   return (
@@ -103,8 +130,8 @@ const Profile = () => {
           {profile &&
             <section className={`${styles.profileInfo} flex flex-col gap-4`}>
               <div className={styles.profileAvatar}>
-                <img onClick={() => setShowPicker(!showPicker)} src={clicked?.img} alt={clicked?.text} />
-                {showPicker && <BikeAvatar bikesArr={bikesArr} clicked={clicked} setCliked={setCliked} setShowPicker={setShowPicker} />}
+                <img onClick={() => setShowPicker(!showPicker)} src={clicked?.img } alt={clicked?.text} />
+                {showPicker && <BikeAvatar bikesArr={bikesArr} clicked={clicked} setClicked={setClicked} setShowPicker={setShowPicker} />}
               </div>
               <div>
                 <h3 className='font-rubik'><span className='font-berkshire'>User name: </span>{profile?.name}</h3>
@@ -131,8 +158,9 @@ const Profile = () => {
                   : (
                     <textarea onChange={(e) => setTempDescription(e.target.value)} cols="30" rows="10" value={tempDescription || profile?.description} />)}
               </div>
-              <ProfileMedia tempSocial={tempSocial} setTempSocial={setTempSocial} />
+              <ProfileMedia profile={profile} tempSocial={tempSocial} setTempSocial={setTempSocial} />
               <button onClick={handleSubmit}>Update</button>
+              {error && <p className={styles.error}>{error.message}</p>}
             </section>}
           <div className={`${styles.rigthColumn} flex flex-col gap-4`}>
             <hr className='md:hidden' />
