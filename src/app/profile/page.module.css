@@ -47,6 +47,14 @@
   }
 
   .rigthColumn {
+    align-self: stretch;
+    
     width: 60%;
   }
+}
+
+/* ---------- Info Section ---------- */
+.profileAvatar>img {
+  border: 5px solid #161320;
+  border-radius: 50%;
 }
