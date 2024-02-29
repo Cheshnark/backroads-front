@@ -164,7 +164,7 @@ const Profile = () => {
             </section>}
           <div className={`${styles.rigthColumn} flex flex-col gap-4`}>
             <hr className='md:hidden' />
-            <ProfileShelters />
+            <ProfileShelters profile={profile} />
           </div>
         </div>
       </div>
