@@ -11,3 +11,10 @@ export const reverseGeocode = async (lat, lng) => {
 
   return data.display_name
 }
+
+export const getCoordinates = async (address) => {
+  const res = await axios.get(`https://geocode.maps.co/search?q=${address}&api_key=${process.env.NEXT_PUBLIC_GEOCODING_KEY}`)
+  const data = await res.data
+
+  return data
+}

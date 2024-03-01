@@ -16,7 +16,7 @@ const Map = async () => {
         <LocationList locations={locations} />
         <MapLeaf locations={locations} />
       </div>
-      <LocationSearcher />
+      <LocationSearcher locations={locations} />
     </main>
   )
 }
