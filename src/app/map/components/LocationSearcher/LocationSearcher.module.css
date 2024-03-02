@@ -1,0 +1,17 @@
+.locationSearcher {
+  margin-bottom: 1rem;
+}
+
+.locationSearcher input {
+ padding: 0.5rem 1rem;
+}
+
+.locationSearcher input:focus {
+  outline: none;
+}
+
+.locationSearcher button {
+  background-color: #F9F4F6;
+  color: #161320;
+  font-weight: 600;
+}

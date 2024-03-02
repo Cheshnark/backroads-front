@@ -4,14 +4,12 @@ import styles from './LocationSearcher.module.css'
 
 import { useState } from 'react'
 import axios from 'axios'
-
-import { getCoordinates } from '@/utils/geocode'
-
-const LocationSearcher = () => {
-  const [locations, setLocations] = useState([])
+const LocationSearcher = ({ setLocations, setCoordinates }) => {
   const [query, setQuery] = useState('')
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault()
+
     const res = await axios.get(`http://127.0.0.1:8000/api/location/locations?q=${query}`)
     let data = []
     if (!query) {
@@ -22,23 +20,15 @@ const LocationSearcher = () => {
 
     setLocations(data)
 
-    const finalLocation = locations[0]?.address
-    const coordinates = await getCoordinates(finalLocation)
-
-    console.log(coordinates[0].lat, coordinates[1].lat)
+    const finalLocation = data[0].coordinates
+    setCoordinates(finalLocation)
   }
 
   return (
-    <div className={styles.locationSearcher}>
+    <form className={`${styles.locationSearcher} flex items-center`}>
       <input type='text' placeholder='Search shelters' onChange={(e) => setQuery(e.target.value.toLocaleLowerCase())} />
-      <button onClick={handleClick}>Clicky</button>
-
-      <ol>
-        {locations?.map(location => (
-          <li key={location.id} className='text-slate-800'>{location.title}</li>
-        ))}
-      </ol>
-    </div>
+      <button onClick={(e) => handleClick(e)}>Search</button>
+    </form>
   )
 }
 

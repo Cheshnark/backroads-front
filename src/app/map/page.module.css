@@ -2,7 +2,7 @@
   margin-top: 7rem;
   padding: 1rem 1.5rem 5rem 1.5rem;
 
-  background-color: #F9F4F6;
+  background-color: #f9f4f6;
 }
 
 .map h2 {
@@ -13,4 +13,8 @@
 .mapContainer {
   padding: 1rem;
   background-color: #161320;
+}
+
+.leftCol {
+  max-width: 293px;
 }
