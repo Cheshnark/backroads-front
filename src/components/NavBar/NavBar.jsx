@@ -30,6 +30,7 @@ const NavBar = () => {
             </>)
           : (
             <li><Link href='/login'>Login</Link></li>)}
+          {session?.data?.type === 'admin' && <li><Link href='/admin'>Admin</Link></li>}
       </ul>
       {showDrawer &&
         <DrawerComponent session={session} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />

@@ -16,3 +16,5 @@ export const iterateScore = (score, id) => {
 
   return starArr
 }
+
+// Tengo que ver por qué concho salen quinientos millones de estrellas u_u
