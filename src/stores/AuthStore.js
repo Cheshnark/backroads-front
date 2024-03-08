@@ -6,7 +6,7 @@ import axios from 'axios'
 const useAuthStore = create()(
   persist(
     (set) => ({
-      session: localStorage.getItem('user') ? localStorage.getItem('user') : null,
+      session: localStorage.getItem('user') && typeof window !== 'undefined' ? localStorage.getItem('user') : null,
       setSession: (session) => set({ session }),
       login: async (loginJson) => {
         try {
