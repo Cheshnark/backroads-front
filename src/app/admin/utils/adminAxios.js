@@ -16,14 +16,8 @@ export const getUsers = async () => {
 }
 
 export const patchUsers = async (id, role) => {
-  let value = 'admin'
-
-  if (role === 'admin') {
-    value = 'user'
-  }
-
   try {
-    const res = await axios.patch(`http://127.0.0.1:8000/api/user/users/${id}`, value)
+    const res = await axios.patch(`http://127.0.0.1:8000/api/user/users/${id}`, { role })
     const data = await res.data
 
     if (!data) {

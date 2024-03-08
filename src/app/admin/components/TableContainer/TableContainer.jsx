@@ -12,7 +12,16 @@ const TableContainer = ({ usersArr }) => {
   const [error, setError] = useState(null)
 
   const updateUser = async (id) => {
-    const patched = await patchUsers(id)
+    const foundUser = users.find(user => user.id === id)
+    if (foundUser.type === 'user') {
+      foundUser.type = 'admin'
+    } else {
+      foundUser.type = 'user'
+    }
+
+    setUsers(structuredClone(users))
+
+    const patched = await patchUsers(id, foundUser.type)
 
     if (patched.status === 400) {
       setError(patched.message)
