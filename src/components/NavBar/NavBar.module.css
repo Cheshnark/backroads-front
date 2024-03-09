@@ -37,6 +37,16 @@
     align-items: center;
     gap: 1rem;
   }
+
+  .profileContainer {
+    padding: 0.2rem 0.5rem;
+    background-color: #F9F4F6;
+  }
+
+  .profileContainer li {
+    color: #161320;
+    font-weight: 600;
+  }
 }
 
 /* ---------- Header ----------*/

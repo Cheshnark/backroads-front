@@ -1,17 +1,30 @@
 'use client'
 
 import styles from './SignOut.module.css'
-import { LogOut } from 'lucide-react'
+import { PowerOff } from 'lucide-react'
 import useAuthStore from '@/stores/AuthStore'
 
 export default function SignOut () {
-  const { logout } = useAuthStore()
+  const { logout, session } = useAuthStore()
 
   const handleSignOut = async () => {
-    logout()
+    const logoutJson = {
+      data: {
+        attributes: {
+          id: session.data.attributes.id,
+          email: session.data.attributes.email,
+          device_name: 'Mackauly'
+        },
+        meta: {
+          token: session.meta
+        }
+      }
+    }
+
+    logout(logoutJson)
       .then((user) => {
         console.log('Logout successful', user)
-        window.location.href = 'https://app.amplipod.io/login'
+        window.location.href = 'http://localhost:8080/'
       })
       .catch((error) => {
         console.log('Logout failed', error)
@@ -20,8 +33,7 @@ export default function SignOut () {
 
   return (
     <button className={styles.buttonOut} onClick={handleSignOut}>
-      <span className={styles.icon}><LogOut /></span>
-      Logout
+      <span className={styles.icon}><PowerOff /></span>
     </button>
   )
 }
