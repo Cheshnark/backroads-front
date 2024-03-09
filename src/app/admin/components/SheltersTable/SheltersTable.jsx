@@ -2,7 +2,7 @@ import styles from './Shelters.module.css'
 
 import { Trash, Pen } from 'lucide-react'
 
-const SheltersTable = ({ shelters, onShowShelter, deleteShelter, error }) => {
+const SheltersTable = ({ shelters, onShowShelter, onDeleteShelter, error }) => {
   return (
     <section className={styles.sheltersTable}>
       <div className='flex items-center gap-8'>
@@ -24,7 +24,7 @@ const SheltersTable = ({ shelters, onShowShelter, deleteShelter, error }) => {
               <td>{shelter?.address}</td>
               <td className='flex items-center gap-2'>
                 <Pen onClick={() => onShowShelter(shelter.id)} className={styles.userIcon} />
-                <Trash onClick={() => deleteShelter(shelter.id)} className={styles.userIcon} />
+                <Trash onClick={() => onDeleteShelter(shelter.id)} className={styles.userIcon} />
               </td>
             </tr>
           ))}

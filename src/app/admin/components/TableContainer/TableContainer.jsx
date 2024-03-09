@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import UsersTable from '../UsersTable/UsersTable'
 import SheltersTable from '../SheltersTable/SheltersTable'
-import { deleteUsers, patchUsers } from '../../utils/adminAxios'
+import { deleteShelter, deleteUsers, patchUsers } from '../../utils/adminAxios'
 import UpdateShelterModal from '../UpdateShelterModal/UpdateShelterModal'
 
 const TableContainer = ({ usersArr, sheltersArr }) => {
@@ -67,9 +67,15 @@ const TableContainer = ({ usersArr, sheltersArr }) => {
     return true
   }
 
-  const deleteShelter = async (id) => {
+  const onDeleteShelter = async (id) => {
     const filteredShelters = shelters.filter(shelter => shelter.id !== id)
     setShelters(filteredShelters)
+
+    const deleted = await deleteShelter(id)
+
+    if (deleted.status === 400) {
+      setError(deleted.message)
+    }
   }
 
   return (
@@ -82,7 +88,7 @@ const TableContainer = ({ usersArr, sheltersArr }) => {
         ? (
           <UsersTable users={users} updateUser={updateUser} deleteUser={deleteUser} error={error} />)
         : (
-          <SheltersTable shelters={shelters} error={error} onShowShelter={onShowShelter} deleteShelter={deleteShelter} />)
+          <SheltersTable shelters={shelters} error={error} onShowShelter={onShowShelter} onDeleteShelter={onDeleteShelter} />)
       }
       {showUpdateShelter &&
         <UpdateShelterModal setShowUpdateShelter={setShowUpdateShelter} updateShelter={updateShelter} filteredShelter={filteredShelter} />}

@@ -62,3 +62,34 @@ export const getShelters = async () => {
     return { status: 400, message: 'Error fetching data' }
   }
 }
+
+export const patchShelter = async (id, role) => {
+  try {
+    const res = await axios.patch(`http://127.0.0.1:8000/api/location/locations/${id}`, { role })
+    const data = await res.data
+
+    if (!data) {
+      return { status: 400, message: 'Error fetching update' }
+    }
+
+    return { status: 200, message: 'Successful fetch' }
+  } catch (error) {
+    return { status: 400, message: 'Update failed' }
+  }
+}
+
+export const deleteShelter = async (id) => {
+  try {
+    const res = await axios.delete(`http://127.0.0.1:8000/api/location/locations/${id}`)
+    const data = await res.data
+
+    if (!data) {
+      return { status: 400, message: 'Error fetching delete' }
+    }
+
+    console.log(data)
+    return { status: 200, message: 'Successful fetch' }
+  } catch (error) {
+    return { status: 400, message: 'Delete failed' }
+  }
+}
