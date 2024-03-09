@@ -1,9 +1,35 @@
 import styles from './Shelters.module.css'
 
-const SheltersTable = () => {
-  return (
-    <section className={styles.SheltersTable}>
+import { Trash, Pen } from 'lucide-react'
 
+const SheltersTable = ({ shelters, onShowShelter, deleteShelter, error }) => {
+  return (
+    <section className={styles.sheltersTable}>
+      <div className='flex items-center gap-8'>
+        <h3 className='font-berkshire'>Shelters</h3>
+        {error && <p className={styles.error}>{error}</p>}
+      </div>
+      <table className={`${styles.tableContainer}`}>
+        <tbody className='flex flex-col gap-2'>
+          <tr className={`${styles.tableHeaders} grid grid-cols-4`}>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Address</th>
+            <th>Actions</th>
+          </tr>
+          {shelters?.map(shelter => (
+            <tr key={shelter.id} className='grid grid-cols-4'>
+              <td>{shelter?.title}</td>
+              <td>{shelter?.locationType}</td>
+              <td>{shelter?.address}</td>
+              <td className='flex items-center gap-2'>
+                <Pen onClick={() => onShowShelter(shelter.id)} className={styles.userIcon} />
+                <Trash onClick={() => deleteShelter(shelter.id)} className={styles.userIcon} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   )
 }

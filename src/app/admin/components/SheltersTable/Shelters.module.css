@@ -1,0 +1,25 @@
+.sheltersTable {
+  min-width: 750px;
+  padding: 1rem;
+
+  background-color: #F9F4F6;
+}
+
+.tableContainer {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.tableContainer th {
+  text-align: start;
+}
+
+.userIcon:hover {
+  cursor: pointer;
+  color: #D14836;
+}
+
+.error {
+  font-weight: 600;
+  color: #D14836;
+}

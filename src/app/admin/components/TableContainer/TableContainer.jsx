@@ -5,11 +5,21 @@ import { useState } from 'react'
 import UsersTable from '../UsersTable/UsersTable'
 import SheltersTable from '../SheltersTable/SheltersTable'
 import { deleteUsers, patchUsers } from '../../utils/adminAxios'
+import UpdateShelterModal from '../UpdateShelterModal/UpdateShelterModal'
 
-const TableContainer = ({ usersArr }) => {
+const TableContainer = ({ usersArr, sheltersArr }) => {
   const [showUsers, setShowUsers] = useState(true)
+  const [showUpdateShelter, setShowUpdateShelter] = useState(false)
   const [users, setUsers] = useState(usersArr)
+  const [shelters, setShelters] = useState(sheltersArr)
+  const [filteredShelter, setFilteredShelter] = useState(null)
   const [error, setError] = useState(null)
+
+  const onShowShelter = (id) => {
+    const filteredShelter = shelters.filter(shelter => shelter.id === id)
+    setFilteredShelter(filteredShelter[0])
+    setShowUpdateShelter(true)
+  }
 
   const updateUser = async (id) => {
     const foundUser = users.find(user => user.id === id)
@@ -39,6 +49,29 @@ const TableContainer = ({ usersArr }) => {
     }
   }
 
+  const updateShelter = async (id, values) => {
+    const foundShelterIndex = shelters.findIndex(shelter => shelter.id === id)
+    console.log(shelters[foundShelterIndex])
+
+    shelters[foundShelterIndex].title = values.title
+    shelters[foundShelterIndex].body = values.body
+    shelters[foundShelterIndex].locationType = values.locationType
+    shelters[foundShelterIndex].address = values.address
+    shelters[foundShelterIndex].price = values.price
+    shelters[foundShelterIndex].openingHours = values.openingHours
+    shelters[foundShelterIndex].score = values.score
+
+    setUsers(structuredClone(shelters))
+    setShowUpdateShelter(false)
+
+    return true
+  }
+
+  const deleteShelter = async (id) => {
+    const filteredShelters = shelters.filter(shelter => shelter.id !== id)
+    setShelters(filteredShelters)
+  }
+
   return (
     <>
       <header className='flex justify-center '>
@@ -49,8 +82,10 @@ const TableContainer = ({ usersArr }) => {
         ? (
           <UsersTable users={users} updateUser={updateUser} deleteUser={deleteUser} error={error} />)
         : (
-          <SheltersTable />)
+          <SheltersTable shelters={shelters} error={error} onShowShelter={onShowShelter} deleteShelter={deleteShelter} />)
       }
+      {showUpdateShelter &&
+        <UpdateShelterModal setShowUpdateShelter={setShowUpdateShelter} updateShelter={updateShelter} filteredShelter={filteredShelter} />}
     </>
   )
 }
