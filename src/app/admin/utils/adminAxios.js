@@ -63,9 +63,11 @@ export const getShelters = async () => {
   }
 }
 
-export const patchShelter = async (id, role) => {
+export const patchShelter = async (id, shelter) => {
+  console.log(shelter)
+
   try {
-    const res = await axios.patch(`http://127.0.0.1:8000/api/location/locations/${id}`, { role })
+    const res = await axios.patch(`http://127.0.0.1:8000/api/location/locations/${id}`, shelter)
     const data = await res.data
 
     if (!data) {
@@ -87,7 +89,6 @@ export const deleteShelter = async (id) => {
       return { status: 400, message: 'Error fetching delete' }
     }
 
-    console.log(data)
     return { status: 200, message: 'Successful fetch' }
   } catch (error) {
     return { status: 400, message: 'Delete failed' }

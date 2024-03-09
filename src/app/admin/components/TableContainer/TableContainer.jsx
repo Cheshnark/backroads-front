@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import UsersTable from '../UsersTable/UsersTable'
 import SheltersTable from '../SheltersTable/SheltersTable'
-import { deleteShelter, deleteUsers, patchUsers } from '../../utils/adminAxios'
+import { deleteShelter, deleteUsers, patchShelter, patchUsers } from '../../utils/adminAxios'
 import UpdateShelterModal from '../UpdateShelterModal/UpdateShelterModal'
 
 const TableContainer = ({ usersArr, sheltersArr }) => {
@@ -63,6 +63,12 @@ const TableContainer = ({ usersArr, sheltersArr }) => {
 
     setUsers(structuredClone(shelters))
     setShowUpdateShelter(false)
+
+    const patched = patchShelter(id, values)
+
+    if (patched.status === 400) {
+      setError('Error updating shelter')
+    }
 
     return true
   }
