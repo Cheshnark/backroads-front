@@ -10,7 +10,7 @@ const LocationSearcher = ({ setLocations, setCoordinates }) => {
   const handleClick = async (e) => {
     e.preventDefault()
 
-    const res = await axios.get(`http://127.0.0.1:8000/api/location/locations?q=${query}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/location/locations?q=${query}`)
     let data = []
     if (!query) {
       data = await res.data.data

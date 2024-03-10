@@ -13,7 +13,7 @@ const ProfileShelters = ({ profile }) => {
   useEffect(() => {
     const fetchShelters = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:8000/api/locations/${profile?.user_id}/locations`)
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/locations/${profile?.user_id}/locations`)
         const data = await res.data
 
         setShelters(data)

@@ -83,7 +83,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const res = await axios.get(`http://127.0.0.1:8000/api/user/profiles/${session?.data?.id}`)
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/user/profiles/${session?.data?.id}`)
       const data = await res.data
 
       setProfile(data.data)
@@ -111,7 +111,7 @@ const Profile = () => {
     }
 
     try {
-      const res = await axios.patch(`http://127.0.0.1:8000/api/user/profiles/${profile.id}`, profileJson, {
+      const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/profiles/${profile.id}`, profileJson, {
         headers: {
           'Content-Type': 'application/json'
         }

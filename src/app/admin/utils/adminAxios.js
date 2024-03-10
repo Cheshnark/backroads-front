@@ -2,8 +2,9 @@ import axios from 'axios'
 
 // User requests
 export const getUsers = async () => {
+  console.log(process.env.NEXT_PUBLIC_URL)
   try {
-    const res = await axios.get('http://127.0.0.1:8000/api/user/users')
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/user/users`)
     const data = await res.data
 
     if (!data) {
@@ -18,7 +19,7 @@ export const getUsers = async () => {
 
 export const patchUsers = async (id, role) => {
   try {
-    const res = await axios.patch(`http://127.0.0.1:8000/api/user/users/${id}`, { role })
+    const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/users/${id}`, { role })
     const data = await res.data
 
     if (!data) {
@@ -33,7 +34,7 @@ export const patchUsers = async (id, role) => {
 
 export const deleteUsers = async (id) => {
   try {
-    const res = await axios.delete(`http://127.0.0.1:8000/api/user/users/${id}`)
+    const res = await axios.delete(`${process.env.NEXT_PUBLIC_URL}/api/user/users/${id}`)
     const data = await res.data
 
     if (!data) {
@@ -50,7 +51,7 @@ export const deleteUsers = async (id) => {
 // Shelter request
 export const getShelters = async () => {
   try {
-    const res = await axios.get('http://127.0.0.1:8000/api/location/locations')
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/location/locations`)
     const data = await res.data
 
     if (!data) {
@@ -67,7 +68,7 @@ export const patchShelter = async (id, shelter) => {
   console.log(shelter)
 
   try {
-    const res = await axios.patch(`http://127.0.0.1:8000/api/location/locations/${id}`, shelter)
+    const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/location/locations/${id}`, shelter)
     const data = await res.data
 
     if (!data) {
@@ -82,7 +83,7 @@ export const patchShelter = async (id, shelter) => {
 
 export const deleteShelter = async (id) => {
   try {
-    const res = await axios.delete(`http://127.0.0.1:8000/api/location/locations/${id}`)
+    const res = await axios.delete(`${process.env.NEXT_PUBLIC_URL}/api/location/locations/${id}`)
     const data = await res.data
 
     if (!data) {

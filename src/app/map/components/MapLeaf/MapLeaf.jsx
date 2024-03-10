@@ -33,6 +33,8 @@ const MapLeaf = ({ locations, coordinates }) => {
     return null
   }
 
+  console.log(locations)
+
   return (
     <section className={styles.mapLeaf}>
       <MapContainer
@@ -54,7 +56,7 @@ const MapLeaf = ({ locations, coordinates }) => {
                 <div className={styles.mapPopUp}>
                   <div className='flex justify-between items-center'>
                     <Link href={`/location/${location.id}`}><h4 className='font-berkshire'>{location.title}</h4></Link>
-                    <p className='font-rubik'>- {location.location_type}</p>
+                    <p className='font-rubik'>- {location.locationType}</p>
                   </div>
                   <p className='font-rubik'>{location.body}</p>
                   <div className='flex'>

@@ -21,7 +21,7 @@ const Location = () => {
 
   useEffect(() => {
     const fetchLocation = async () => {
-      const res = await axios.get(`http://127.0.0.1:8000/api/location/locations/${locationId}`)
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/location/locations/${locationId}`)
       const data = await res.data
 
       setLocation(data.data)

@@ -70,7 +70,7 @@ const AddShelter = () => {
     }
 
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/location/locations', addJson, {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/location/locations`, addJson, {
         headers: {
           'Content-Type': 'application/json'
         }

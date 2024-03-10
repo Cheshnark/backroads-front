@@ -10,7 +10,7 @@ const useAuthStore = create()(
       setSession: (session) => set({ session }),
       login: async (loginJson) => {
         try {
-          const res = await axios.post('http://127.0.0.1:8000/api/login', loginJson, {
+          const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/login`, loginJson, {
             headers: {
               'Content-Type': 'application/json'
             }
@@ -30,8 +30,9 @@ const useAuthStore = create()(
         }
       },
       register: async (registerJson) => {
+        console.log(`${process.env.NEXT_PUBLIC_URL}/api/register`)
         try {
-          const res = await axios.post('http://127.0.0.1:8000/api/register', registerJson, {
+          const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/register`, registerJson, {
             headers: {
               'Content-Type': 'application/json'
             }
@@ -51,7 +52,7 @@ const useAuthStore = create()(
         }
       },
       logout: async (logoutJson) => {
-        const res = await axios.post('http://127.0.0.1:8000/api/logout', logoutJson, {
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/logout`, logoutJson, {
           headers: {
             'Content-Type': 'application/json'
           }
