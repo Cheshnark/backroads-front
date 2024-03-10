@@ -8,15 +8,18 @@ import 'swiper/css/free-mode'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Thumbs, FreeMode } from 'swiper/modules'
+import { useRouter } from 'next/navigation'
 
 import Commodities from '@/components/Commodities/Commodities'
 
 const Carousel = () => {
+  const router = useRouter()
   const slides = [
     {
       id: 1,
-      img: '/images/home01.webp',
-      title: 'Panes',
+      img: '/images/card01.webp',
+      url: 'https://backroads-front.vercel.app/location/9b884080-36f6-42da-95ef-12a82fe22493',
+      title: 'Titulcia',
       body: 'Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes.',
       services: {
         water: true,
@@ -28,7 +31,8 @@ const Carousel = () => {
     },
     {
       id: 2,
-      img: '/images/home02.webp',
+      img: '/images/card02.webp',
+      url: 'https://backroads-front.vercel.app/location/9b884590-cff0-4816-9d89-4f53b21304e5',
       title: 'Siberia',
       body: 'Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes.',
       services: {
@@ -41,8 +45,9 @@ const Carousel = () => {
     },
     {
       id: 3,
-      img: '/images/login01.webp',
-      title: 'Tulcia',
+      img: '/images/card03.webp',
+      url: 'https://backroads-front.vercel.app/location/9b8847ba-7d6c-4976-be8e-5b5ac939aa03',
+      title: 'Restaurante Taekwon',
       body: 'Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes.',
       services: {
         water: true,
@@ -54,8 +59,9 @@ const Carousel = () => {
     },
     {
       id: 4,
-      img: '/images/login01.webp',
-      title: 'Tulcia',
+      img: '/images/card04.webp',
+      url: 'https://backroads-front.vercel.app/location/9b884850-0e01-49b0-bde3-b7e3e9ef31f2',
+      title: 'La Parrilla',
       body: 'Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes.',
       services: {
         water: true,
@@ -67,8 +73,9 @@ const Carousel = () => {
     },
     {
       id: 5,
-      img: '/images/login01.webp',
-      title: 'Tulcia',
+      img: '/images/card05.webp',
+      url: 'https://backroads-front.vercel.app/location/9b8846c8-12d9-493c-9a2e-bd5b02ad476f',
+      title: 'Aguilar',
       body: 'Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes. Lorem ipsum ipsum sum, tracia batracia antracia en el Ganges, ranges tranges trajes.',
       services: {
         water: true,
@@ -79,6 +86,10 @@ const Carousel = () => {
       }
     }
   ]
+
+  const handleClick = (url) => {
+    router.push(url)
+  }
 
   return (
     <section className={`${styles.carousel} container px-4 md:px-8`}>
@@ -101,7 +112,7 @@ const Carousel = () => {
         className='h-full w-full'
       >
         {slides.map(slide => (
-          <SwiperSlide key={slide.id}>
+          <SwiperSlide key={slide.id} onClick={() => handleClick(slide.url)}>
             <div className={`${styles.cardContainer} flex flex-col h-full w-full items-start justify-center`}>
               <img src={slide.img} alt={slide.alt} className='block' />
               <div className='flex flex-col'>

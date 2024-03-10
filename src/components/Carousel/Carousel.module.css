@@ -5,6 +5,15 @@
   background-color: #f9f4f6;
 }
 
+.cardContainer:hover {
+  cursor: pointer;
+  color: #D14836;
+}
+
+.cardContainer img {
+  max-height: 298px;
+}
+
 .cardContainer h4 {
   margin-top: 0.5rem;
   font-size: 1.7rem;

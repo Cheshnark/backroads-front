@@ -44,6 +44,12 @@
   }
 }
 
+@media (width >= 768px) {
+  .boxText {
+    padding: 1rem 2rem;
+  }
+}
+
 /* ---------- Shelter Section ----------*/
 .shelterContainer {
   margin-top: 3rem;
