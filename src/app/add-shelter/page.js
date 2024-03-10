@@ -5,11 +5,16 @@ import styles from './page.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import dynamic from 'next/dynamic'
 
-import AddMap from './components/AddMap/AddMap'
 import AddForm from './components/AddForm/AddForm'
 import { reverseGeocode } from '@/utils/geocode'
 import useAuthStore from '@/stores/AuthStore'
+
+const DynamicAddMap = dynamic(() => import('./components/AddMap/AddMap'), {
+  ssr: false,
+  loading: () => <div className={styles.mapLoading}><p>Loading Map...</p></div>
+})
 
 const AddShelter = () => {
   const [position, setPosition] = useState({ lat: 55.62557303452915, lng: 37.54526138305665 })
@@ -85,8 +90,8 @@ const AddShelter = () => {
   return (
     <main className={styles.addShelter}>
       <h2 className='font-berkshire'>Add a Shelter</h2>
-      <div className='flex gap-4'>
-        <AddMap position={position} setPosition={setPosition} />
+      <div className='flex flex-col sm:flex-row gap-4'>
+        <DynamicAddMap position={position} setPosition={setPosition} />
         <AddForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} />
       </div>
       {error && <p className={styles.error}>{error.message}</p>}

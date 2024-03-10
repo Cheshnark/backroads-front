@@ -17,7 +17,7 @@ const SheltersTable = ({ shelters, onShowShelter, onDeleteShelter, error }) => {
             <th>Address</th>
             <th>Actions</th>
           </tr>
-          {shelters && shelters.map(shelter => (
+          {shelters && shelters?.map(shelter => (
             <tr key={shelter.id} className='grid grid-cols-4'>
               <td>{shelter?.title}</td>
               <td>{shelter?.locationType}</td>

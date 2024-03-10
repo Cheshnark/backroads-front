@@ -12,8 +12,8 @@ import useAuthStore from '@/stores/AuthStore'
 const TableContainer = ({ usersArr, sheltersArr }) => {
   const [showUsers, setShowUsers] = useState(true)
   const [showUpdateShelter, setShowUpdateShelter] = useState(false)
-  const [users, setUsers] = useState(usersArr)
-  const [shelters, setShelters] = useState(sheltersArr)
+  const [users, setUsers] = useState(usersArr || null)
+  const [shelters, setShelters] = useState(sheltersArr || null)
   const [filteredShelter, setFilteredShelter] = useState(null)
   const [error, setError] = useState(null)
 
@@ -72,7 +72,7 @@ const TableContainer = ({ usersArr, sheltersArr }) => {
     shelters[foundShelterIndex].openingHours = values.openingHours
     shelters[foundShelterIndex].score = values.score
 
-    setUsers(structuredClone(shelters))
+    setShelters(structuredClone(shelters))
     setShowUpdateShelter(false)
 
     const patched = patchShelter(id, values)

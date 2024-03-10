@@ -22,3 +22,37 @@
   color: #D14836;
   font-weight: 600;
 }
+
+@media (width >= 640px) {
+  .mapLoading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 300px;
+    min-height: 600;
+
+    background-color: #161320;
+  }
+
+  .mapLoading p {
+    color: #F9F4F6;
+    font-weight: 600;
+  }
+}
+
+@media (width >= 768px) {
+  .mapLoading {
+    min-width: 361px;
+    min-height: 800;
+  }
+}
+
+@media (width >= 1024px) {
+  .mapLoading {
+    width: 100%;
+    min-width: 615px;
+    min-height: 800;
+  }
+}
