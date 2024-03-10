@@ -17,7 +17,7 @@ const UsersTable = ({ users, updateUser, deleteUser, error }) => {
             <th>Role</th>
             <th>Actions</th>
           </tr>
-          {users?.map(user => (
+          {users && users.map(user => (
             <tr key={user.id} className='grid grid-cols-4'>
               <td>{user?.attributes.email}</td>
               <td>{user?.attributes.name}</td>
