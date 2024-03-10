@@ -3,10 +3,15 @@
 import styles from './page.module.css'
 
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 
-import MapLeaf from './components/MapLeaf/MapLeaf'
 import LocationList from './components/LocationList/LocationList'
 import LocationSearcher from './components/LocationSearcher/LocationSearcher'
+
+const DynamicMapLeaf = dynamic(() => import('./components/MapLeaf/MapLeaf'), {
+  ssr: false,
+  loading: () => <div className={styles.mapLoading}><p>Loading Map...</p></div>
+})
 
 const Map = () => {
   const [locations, setLocations] = useState(null)
@@ -20,7 +25,7 @@ const Map = () => {
           <LocationSearcher locations={locations} setLocations={setLocations} setCoordinates={setCoordinates} />
           <LocationList locations={locations} />
         </div>
-        <MapLeaf locations={locations} coordinates={coordinates} />
+        <DynamicMapLeaf locations={locations} coordinates={coordinates} />
       </div>
     </main>
   )
