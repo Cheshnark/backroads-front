@@ -6,12 +6,12 @@ import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
 
 import useAuthStore from '@/stores/AuthStore'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const RegisterForm = () => {
   const [error, setError] = useState(null)
   const router = useRouter()
-  const { register } = useAuthStore()
+  const { register, session } = useAuthStore()
 
   const formik = useFormik({
     initialValues: {
@@ -58,6 +58,12 @@ const RegisterForm = () => {
       }
     }
   })
+
+  useEffect(() => {
+    if (session !== null) {
+      router.push('/')
+    }
+  }, [session])
 
   return (
     <form onSubmit={formik.handleSubmit} className={`${styles.registerForm} flex flex-col gap-4`}>

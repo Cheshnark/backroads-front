@@ -49,3 +49,33 @@
 .honorText button {
   margin: 1.5rem auto 1rem auto;
 }
+
+/* ---------- Error ----------*/
+.notFound {
+  min-height: 50vh;
+  background-color: #F9F4F6;
+}
+
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 14rem 5rem 5rem 5rem;
+
+  text-align: center;
+}
+
+.notFoundContainer h2,
+.notFoundContainer p {
+  color: #161320;
+}
+
+.notFoundContainer a {
+  font-weight: 600;
+}
+
+.notFoundContainer a:hover {
+  color: #D14836;
+}

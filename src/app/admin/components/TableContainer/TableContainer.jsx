@@ -1,11 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 import UsersTable from '../UsersTable/UsersTable'
 import SheltersTable from '../SheltersTable/SheltersTable'
 import { deleteShelter, deleteUsers, patchShelter, patchUsers } from '../../utils/adminAxios'
 import UpdateShelterModal from '../UpdateShelterModal/UpdateShelterModal'
+import useAuthStore from '@/stores/AuthStore'
 
 const TableContainer = ({ usersArr, sheltersArr }) => {
   const [showUsers, setShowUsers] = useState(true)
@@ -14,6 +16,15 @@ const TableContainer = ({ usersArr, sheltersArr }) => {
   const [shelters, setShelters] = useState(sheltersArr)
   const [filteredShelter, setFilteredShelter] = useState(null)
   const [error, setError] = useState(null)
+
+  const { session } = useAuthStore()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (session?.data?.type === 'user') {
+      router.push('/')
+    }
+  }, [session])
 
   const onShowShelter = (id) => {
     const filteredShelter = shelters.filter(shelter => shelter.id === id)

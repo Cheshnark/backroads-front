@@ -4,14 +4,14 @@ import styles from './LoginForm.module.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import useAuthStore from '@/stores/AuthStore'
 
 const LoginForm = () => {
   const [error, setError] = useState(null)
   const router = useRouter()
-  const { login } = useAuthStore()
+  const { login, session } = useAuthStore()
 
   const formik = useFormik({
     initialValues: {
@@ -44,6 +44,12 @@ const LoginForm = () => {
       }
     }
   })
+
+  useEffect(() => {
+    if (session !== null) {
+      router.push('/')
+    }
+  }, [session])
 
   return (
     <form onSubmit={formik.handleSubmit} className={`${styles.registerForm} flex flex-col gap-4`}>

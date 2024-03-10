@@ -93,6 +93,12 @@ const Profile = () => {
     fetchProfile()
   }, [])
 
+  useEffect(() => {
+    if (session === null) {
+      router.push('/')
+    }
+  }, [session])
+
   const handleSubmit = async () => {
     const profileJson = {
       description: tempDescription || profile.description,
