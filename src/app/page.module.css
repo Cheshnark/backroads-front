@@ -11,6 +11,39 @@
   background-size: cover;
 }
 
+.boxText {
+  position: relative;
+  bottom: 8rem;
+
+  width: 60%;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  background-color: rgba(249, 244, 246, 0.80);
+}
+
+.boxText h2,
+.boxText p {
+  color: #161320;
+}
+
+.boxText h2 {
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+@media (width >= 640px) {
+  .boxText h2 {
+    text-align: right;
+    font-size: 4.5rem;
+  }
+
+  .boxText p {
+    text-align: justify;
+  }
+}
+
 /* ---------- Shelter Section ----------*/
 .shelterContainer {
   margin-top: 3rem;
@@ -43,7 +76,7 @@
 
   padding: 1rem;
 
-  background-color: #F9F4F6;
+  background-color: rgba(249, 244, 246, 0.80);
 }
 
 .honorText button {
