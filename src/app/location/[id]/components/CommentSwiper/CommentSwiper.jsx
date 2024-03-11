@@ -42,7 +42,7 @@ const CommentSwiper = ({ comments }) => {
                     </div>
                   </div>
                   <div className='flex'>
-                    {iterateScore(comment.score, comment.id)}
+                    {iterateScore(comment.score)}
                   </div>
                 </header>
                 <p>{comment.body}</p>
@@ -65,7 +65,7 @@ const CommentSwiper = ({ comments }) => {
                   </div>
                 </div>
                 <div className='flex'>
-                  {iterateScore(comment.score, comment.id)}
+                  {iterateScore(comment.score)}
                 </div>
               </header>
               <p>{comment.body}</p>

@@ -60,7 +60,7 @@ const MapLeaf = ({ locations, coordinates }) => {
                   </div>
                   <p className='font-rubik'>{location.body}</p>
                   <div className='flex'>
-                    {iterateScore(location.score, location.id)}
+                    {iterateScore(location.score)}
                   </div>
                 </div>
               </Popup>

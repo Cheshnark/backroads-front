@@ -14,7 +14,7 @@ const LocationHeader = ({ location }) => {
         <Flame />
       </div>
       <div className={`${styles.item03} flex`}>
-        {iterateScore(location?.score, location?.id)}
+        {iterateScore(location?.score)}
       </div>
       <div className={styles.item04}>
         <p>{location?.locationType}</p>
