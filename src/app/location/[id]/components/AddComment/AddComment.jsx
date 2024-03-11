@@ -20,9 +20,9 @@ const AddComment = ({ setComments }) => {
 
     const newComment = {
       user: {
-        id: session.data.attributes.id,
+        id: session?.data?.attributes?.id,
         avatar: 'https://images.pexels.com/photos/1915149/pexels-photo-1915149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: session.data.attributes.name
+        name: session?.data?.attributes?.name
       },
       date: format(new Date(), 'dd/MM/yyyy'),
       score: rating,
