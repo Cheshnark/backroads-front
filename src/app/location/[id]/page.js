@@ -18,6 +18,26 @@ import { useEffect, useState } from 'react'
 const Location = () => {
   const [location, setLocation] = useState(null)
   const locationId = useParams().id
+  const [comments, setComments] = useState([
+    {
+      user: {
+        avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
+        name: 'Lemmy'
+      },
+      date: '26/04/25',
+      score: 4.5,
+      body: 'If you see me walkin\' down the line. With my favorite honky tonk in mind, Well, I\'ll be here around suppertime. With my can of dinner and a bunch of fine. Beer drinkers and hell raisers, yeah. Uh-huh-huh, baby, don\'t you wanna come with me? The crowd gets loud when the band gets right, Steel guitar cryin\' through the night.'
+    },
+    {
+      user: {
+        avatar: 'https://images.genius.com/316c7d518540fae6c8d72292954d7d61.1000x1000x1.jpg',
+        name: 'Ren'
+      },
+      date: '26/04/25',
+      score: 2.5,
+      body: 'I don\'t feel safe in these halls. There are bruises on the walls. There are bodies in the floors, and they breathe so loudly. I wish I could move. Get up and walk right out this tomb. Do our saviours die too soon? For my sins surround me.'
+    }
+  ])
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -29,39 +49,6 @@ const Location = () => {
 
     fetchLocation()
   }, [])
-
-  const comments = [
-    {
-      id: 1,
-      user: {
-        avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
-        name: 'Lemmy'
-      },
-      date: '26/04/25',
-      score: 4.5,
-      body: 'Buena mierda, te ponen unas magdalenas para mojar en el whiskey cojonudas. Y la dueña te hace unas lentejas que se te va la olla, buenos vicios al Crash Bandicoot con su hijo.'
-    },
-    {
-      id: 2,
-      user: {
-        avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
-        name: 'Lemmy'
-      },
-      date: '26/04/25',
-      score: 4.5,
-      body: 'Buena mierda, te ponen unas magdalenas para mojar en el whiskey cojonudas. Y la dueña te hace unas lentejas que se te va la olla, buenos vicios al Crash Bandicoot con su hijo.'
-    },
-    {
-      id: 3,
-      user: {
-        avatar: 'https://mariskalrock.com/wp-content/uploads/2020/07/lemmy-kilmister-motorhead.jpg',
-        name: 'Lemmy'
-      },
-      date: '26/04/25',
-      score: 4.5,
-      body: 'Buena mierda, te ponen unas magdalenas para mojar en el whiskey cojonudas. Y la dueña te hace unas lentejas que se te va la olla, buenos vicios al Crash Bandicoot con su hijo.'
-    }
-  ]
 
   return (
     <main className={styles.location}>
@@ -82,7 +69,7 @@ const Location = () => {
       <section className={styles.comments}>
         <h3 className='font-berkshire'>Help other riders</h3>
         <div className='sm:flex sm: justify-between sm:items-start'>
-          <AddComment />
+          <AddComment setComments={setComments} />
           <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
         </div>
         <hr />

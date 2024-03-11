@@ -1,24 +1,40 @@
 'use client'
 
-import { useState } from 'react'
 import styles from './AddComment.module.css'
 
-const AddComment = (e) => {
+import { useState } from 'react'
+import { format } from 'date-fns'
+
+import useAuthStore from '@/stores/AuthStore'
+
+const AddComment = ({ setComments }) => {
   const [rating, setRating] = useState(null)
   const [comment, setComment] = useState('')
   const [hover, setHover] = useState(null)
   const [error, setError] = useState(null)
   const totalStars = 5
+  const { session } = useAuthStore()
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const newComment = {
+      user: {
+        id: session.data.attributes.id,
+        avatar: 'https://images.pexels.com/photos/1915149/pexels-photo-1915149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        name: session.data.attributes.name
+      },
+      date: format(new Date(), 'dd/MM/yyyy'),
+      score: rating,
+      body: comment
+    }
 
     if (comment.length < 25 || rating < 1) {
       setError({
         message: 'Comment must be 25 characters or longer. Oh, and rate it ;)'
       })
     } else {
-      // Gestión del post del comment
+      setComments(comments => [...comments, newComment])
     }
   }
 

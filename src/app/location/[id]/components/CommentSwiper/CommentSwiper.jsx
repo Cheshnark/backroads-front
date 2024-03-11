@@ -6,6 +6,7 @@ import 'swiper/css/navigation'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
+import { v4 } from 'uuid'
 
 import { iterateScore } from '@/utils/iterateScore'
 
@@ -31,8 +32,8 @@ const CommentSwiper = ({ comments }) => {
           className='h-full w-full'
         >
           {comments.map(comment => (
-            <SwiperSlide key={comment.id}>
-              <article key={comment.id} className={`${styles.commentCard} flex flex-col`}>
+            <SwiperSlide key={v4()}>
+              <article className={`${styles.commentCard} flex flex-col`}>
                 <header className={`${styles.commentHeader} flex justify-between items-center`}>
                   <div className='flex gap-2'>
                     <img src={comment.user.avatar} alt='User avatar' />
@@ -55,7 +56,7 @@ const CommentSwiper = ({ comments }) => {
         <h3 className='font-berkshire mb-6'>Other riders opinions</h3>
         <div className={`${styles.commentGrid} grid grid-cols-2 justify-center gap-6`}>
           {comments.map(comment => (
-            <article key={comment.id} className={`${styles.commentCard} flex flex-col`}>
+            <article key={v4()} className={`${styles.commentCard} flex flex-col`}>
               <header className={`${styles.commentHeader} flex justify-between`}>
                 <div className='flex gap-2'>
                   <img src={comment.user.avatar} alt='User avatar' />
