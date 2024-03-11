@@ -15,14 +15,14 @@ const AddComment = ({ setComments }) => {
   const totalStars = 5
   const { session } = useAuthStore()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     const newComment = {
       user: {
-        id: session?.data?.attributes?.id,
+        id: await session?.data?.attributes?.id,
         avatar: 'https://images.pexels.com/photos/1915149/pexels-photo-1915149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: session?.data?.attributes?.name
+        name: await session?.data?.attributes?.name
       },
       date: format(new Date(), 'dd/MM/yyyy'),
       score: rating,
@@ -34,7 +34,7 @@ const AddComment = ({ setComments }) => {
         message: 'Comment must be 25 characters or longer. Oh, and rate it ;)'
       })
     } else {
-      setComments(comments => [...comments, newComment])
+      newComment.user.id && setComments(comments => [...comments, newComment])
     }
   }
 
