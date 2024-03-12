@@ -74,7 +74,7 @@ const Location = () => {
           <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
         </div>
         <hr />
-        <CommentSwiper comments={comments} hasChanged={hasChanged} />
+        <CommentSwiper comments={comments} setComments={setComments} hasChanged={hasChanged} />
       </section>
     </main>
   )
