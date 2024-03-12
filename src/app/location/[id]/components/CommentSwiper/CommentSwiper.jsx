@@ -9,9 +9,12 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { v4 } from 'uuid'
 
 import { iterateScore } from '@/utils/iterateScore'
+import { useEffect } from 'react'
 
 const CommentSwiper = ({ comments }) => {
-  console.log(comments)
+  useEffect(() => {
+    console.log(comments)
+  }, [comments])
   return (
     <>
       <div className={`${styles.commentSwiper} container md:hidden`}>
