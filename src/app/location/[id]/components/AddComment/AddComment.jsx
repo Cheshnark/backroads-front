@@ -8,7 +8,7 @@ import { v4 } from 'uuid'
 
 import useAuthStore from '@/stores/AuthStore'
 
-const AddComment = ({ setComments }) => {
+const AddComment = ({ setComments, setHasChanged, hasChanged }) => {
   const [rating, setRating] = useState(null)
   const [comment, setComment] = useState('')
   const [hover, setHover] = useState(null)
@@ -36,6 +36,7 @@ const AddComment = ({ setComments }) => {
       })
     } else {
       newComment.user.id && setComments(comments => [...comments, newComment])
+      setHasChanged(!hasChanged)
     }
   }
 

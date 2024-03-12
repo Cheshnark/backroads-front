@@ -17,6 +17,7 @@ import { useEffect, useState } from 'react'
 
 const Location = () => {
   const [location, setLocation] = useState(null)
+  const [hasChanged, setHasChanged] = useState(false)
   const locationId = useParams().id
   const [comments, setComments] = useState([
     {
@@ -69,11 +70,11 @@ const Location = () => {
       <section className={styles.comments}>
         <h3 className='font-berkshire'>Help other riders</h3>
         <div className='sm:flex sm: justify-between sm:items-start'>
-          <AddComment setComments={setComments} />
+          <AddComment setComments={setComments} setHasChanged={setHasChanged} hasChanged={hasChanged} />
           <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
         </div>
         <hr />
-        <CommentSwiper comments={comments} />
+        <CommentSwiper comments={comments} hasChanged={hasChanged} />
       </section>
     </main>
   )
