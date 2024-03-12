@@ -34,13 +34,13 @@ const AddComment = ({ setComments }) => {
       setError({
         message: 'Comment must be 25 characters or longer. Oh, and rate it ;)'
       })
-      console.log('mah nigu 1');
+      console.log('mah nigu 1')
     } else {
-      console.log('mah nigu 2');
+      console.log('mah nigu 2')
       newComment.user.id && setComments(comments => [...comments, newComment])
     }
 
-    console.log('mah nigu 3');
+    console.log('mah nigu 3')
   }
 
   return (
