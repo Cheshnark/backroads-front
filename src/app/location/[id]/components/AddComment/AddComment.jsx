@@ -4,6 +4,7 @@ import styles from './AddComment.module.css'
 
 import { useState } from 'react'
 import { format } from 'date-fns'
+import { v4 } from 'uuid'
 
 import useAuthStore from '@/stores/AuthStore'
 
@@ -15,14 +16,14 @@ const AddComment = ({ setComments }) => {
   const totalStars = 5
   const { session } = useAuthStore()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     const newComment = {
       user: {
-        id: await session?.data?.attributes?.id,
+        id: session?.data?.attributes?.id,
         avatar: 'https://images.pexels.com/photos/1915149/pexels-photo-1915149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: await session?.data?.attributes?.name
+        name: session?.data?.attributes?.name
       },
       date: format(new Date(), 'dd/MM/yyyy'),
       score: rating,
@@ -46,7 +47,7 @@ const AddComment = ({ setComments }) => {
           {[...Array(totalStars)].map((star, index) => {
             const currentRating = index + 1
             return (
-              <label key={index}>
+              <label key={v4()}>
                 <input
                   key={star}
                   type='radio'
