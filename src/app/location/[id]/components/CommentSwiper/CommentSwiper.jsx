@@ -11,6 +11,7 @@ import { v4 } from 'uuid'
 import { iterateScore } from '@/utils/iterateScore'
 
 const CommentSwiper = ({ comments }) => {
+  console.log(comments)
   return (
     <>
       <div className={`${styles.commentSwiper} container md:hidden`}>
