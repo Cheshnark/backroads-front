@@ -24,7 +24,7 @@ export default function SignOut () {
     logout(logoutJson)
       .then((user) => {
         console.log('Logout successful', user)
-        window.location.href = 'http://localhost:8080/'
+        window.location.href = 'https://backroads-front.vercel.app/'
       })
       .catch((error) => {
         console.log('Logout failed', error)

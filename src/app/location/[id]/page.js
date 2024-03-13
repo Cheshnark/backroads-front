@@ -14,10 +14,10 @@ import LocationHeader from './components/LocationHeader/LocationHeader'
 import LocationMap from './components/LocationMap/LocationMap'
 import MapInfo from './components/MapInfo/MapInfo'
 import { useEffect, useState } from 'react'
+import useAuthStore from '@/stores/AuthStore'
 
 const Location = () => {
   const [location, setLocation] = useState(null)
-  const [hasChanged, setHasChanged] = useState(false)
   const locationId = useParams().id
   const [comments, setComments] = useState([
     {
@@ -39,6 +39,7 @@ const Location = () => {
       body: 'I don\'t feel safe in these halls. There are bruises on the walls. There are bodies in the floors, and they breathe so loudly. I wish I could move. Get up and walk right out this tomb. Do our saviours die too soon? For my sins surround me.'
     }
   ])
+  const { session } = useAuthStore()
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -68,13 +69,15 @@ const Location = () => {
       </section>
       <hr />
       <section className={styles.comments}>
-        <h3 className='font-berkshire'>Help other riders</h3>
-        <div className='sm:flex sm: justify-between sm:items-start'>
-          <AddComment setComments={setComments} setHasChanged={setHasChanged} hasChanged={hasChanged} />
-          <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
-        </div>
-        <hr />
-        <CommentSwiper comments={comments} setComments={setComments} hasChanged={hasChanged} />
+        {!!session &&
+          <>
+            <h3 className='font-berkshire'>Help other riders</h3>
+            <div className='sm:flex sm: justify-between sm:items-start'>
+              <AddComment setComments={setComments} />
+              <p className={`${styles.addCommentText} hidden sm:block`}>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo. Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo</p>
+            </div>
+            <hr /></>}
+        <CommentSwiper comments={comments} />
       </section>
     </main>
   )
