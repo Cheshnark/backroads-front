@@ -1,5 +1,7 @@
 'use client'
 
+import styles from '../../page.module.css'
+
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
@@ -97,7 +99,7 @@ const TableContainer = ({ usersArr, sheltersArr }) => {
 
   return (
     <>
-      <header className='flex justify-center '>
+      <header className={`${styles.tableButtons} flex justify-center gap-4`}>
         <button onClick={() => setShowUsers(true)}>Users</button>
         <button onClick={() => setShowUsers(false)}>Shelters</button>
       </header>
