@@ -1,8 +1,8 @@
 import axios from 'axios'
+export const revalidate = 0
 
 // User requests
 export const getUsers = async () => {
-  console.log(process.env.NEXT_PUBLIC_URL)
   try {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/user/users`)
     const data = await res.data

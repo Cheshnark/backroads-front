@@ -161,7 +161,7 @@ const UpdateShelterModal = ({ setShowUpdateShelter, updateShelter, filteredShelt
           </div>
           <div className={`${styles.shelterButtons} flex justify-end gap-2`}>
             <button className={styles.cancel} onClick={() => setShowUpdateShelter(false)}>Cancel</button>
-            <button type='submit'>Sign In</button>
+            <button type='submit'>Update</button>
           </div>
           {updateError && <p className={styles.loginError}>{updateError}</p>}
         </form>
