@@ -1,5 +1,5 @@
 import axios from 'axios'
-export const dynamic = 'force-dynamic'
+export const revalidate = 5
 
 // User requests
 export const getUsers = async () => {
