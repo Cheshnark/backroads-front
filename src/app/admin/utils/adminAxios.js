@@ -1,5 +1,4 @@
 import axios from 'axios'
-export const revalidate = 5
 
 // User requests
 export const getUsers = async () => {

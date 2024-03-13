@@ -3,6 +3,8 @@ import styles from './page.module.css'
 import TableContainer from './components/TableContainer/TableContainer'
 import { getShelters, getUsers } from './utils/adminAxios'
 
+export const revalidate = 5
+
 const Admin = async () => {
   const usersArr = await getUsers()
   const sheltersArr = await getShelters()
