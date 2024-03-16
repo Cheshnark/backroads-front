@@ -136,7 +136,7 @@ const Profile = () => {
           {profile &&
             <section className={`${styles.profileInfo} flex flex-col gap-4`}>
               <div className={styles.profileAvatar}>
-                <img onClick={() => setShowPicker(!showPicker)} src={clicked?.img } alt={clicked?.text} />
+                <img onClick={() => setShowPicker(!showPicker)} src={clicked?.img || bikesArr[0].img} alt={clicked?.text} />
                 {showPicker && <BikeAvatar bikesArr={bikesArr} clicked={clicked} setClicked={setClicked} setShowPicker={setShowPicker} />}
               </div>
               <div>
