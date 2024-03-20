@@ -120,8 +120,8 @@ const AddForm = ({ formData, setFormData, handleSubmit }) => {
         />
       </div>
       <hr />
-      <h3 className='font-berkshire'>Add some pictures</h3>
-      <input type='file' />
+      {/* <h3 className='font-berkshire'>Add some pictures</h3>
+      <input type='file' /> */}
       <button type='submit'>Publish</button>
       {/* {error && <p className={styles.registerError}>{error}</p>} */}
     </form>
